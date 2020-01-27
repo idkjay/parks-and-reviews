@@ -3,6 +3,8 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+https://app.codeship.com/projects/866b6d00-2363-0138-5b92-36d991e37ec3/status?branch=master
+
 Things you may want to cover:
 
 * Ruby version
