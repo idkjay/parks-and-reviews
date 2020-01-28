@@ -3,7 +3,6 @@ import { Route, Switch, BrowserRouter } from "react-router-dom"
 
 import ParksIndexContainer from "./ParksIndexContainer"
 
-
 export const App = (props) => {
   return (
     <BrowserRouter>

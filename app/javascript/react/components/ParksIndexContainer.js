@@ -5,7 +5,7 @@ import ParkTile from "./ParkTile"
 const ParksIndexContainer = props => {
   const [ getPark, setPark ] = useState([])
 
-  let fetchPark = () => {
+  useEffect(() => {
     fetch("/api/v1/parks.json")
     .then(response => {
       if (response.ok) {
@@ -22,11 +22,7 @@ const ParksIndexContainer = props => {
       setPark(park)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }
-
-  useEffect(() => {
-    fetchPark()
-  }, [])
+  },[])
 
   const parkTiles = getPark.map(park => {
     const id = park.id
@@ -41,17 +37,15 @@ const ParksIndexContainer = props => {
         rating={park.rating}
         photo={park.photo}
       />
-    );
-  });
+    )
+  })
 
   return (
     <div>
       <h1>Park List</h1>
-      <hr />
       {parkTiles}
-      <ParkTile />
     </div>
-  );
-};
+  )
+}
 
 export default ParksIndexContainer
