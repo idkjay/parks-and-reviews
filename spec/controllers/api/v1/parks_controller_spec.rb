@@ -41,7 +41,6 @@ RSpec.describe Api::V1::ParksController, type: :controller do
       expect(returned_json[1]["zip"]).to eq "999999"
       expect(returned_json[1]["rating"]).to eq 2
       expect(returned_json[1]["photo"]).to eq "http://hellyeah.com"
-
     end
   end
 end

@@ -25,7 +25,6 @@ const ParksIndexContainer = props => {
   },[])
 
   const parkTiles = getPark.map(park => {
-    const id = park.id
     return(
       <ParkTile
         key={park.id}
