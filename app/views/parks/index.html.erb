@@ -1,0 +1,18 @@
+<h1>National Parks List</h1>
+<ul>
+  <% @parks.each do |park|  %>
+  <li>
+    <%= park.name%>
+    <%= park.city%>
+    <%= park.state%>
+    <%= park.zip%>
+    <%= park.rating%>
+
+
+    <img src="<%= park.photo%>" alt="tinker">
+  </li>
+  <%end%>
+</ul>
+
+
+ <!-- dont need -->

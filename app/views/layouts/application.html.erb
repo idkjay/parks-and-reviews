@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
   <nav class="top-bar">
     <h1><a href="/">ParksAndReviews</a></h1>
 
@@ -32,14 +32,14 @@
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
-  
-  <%- if Rails.env.development? || Rails.env.test? -%> 
+
+  <%- if Rails.env.development? || Rails.env.test? -%>
     <%= javascript_tag do %>
       window.railsEnv = '<%= Rails.env %>'
     <%- end -%>
   <%- end -%>
   <%= javascript_pack_tag 'application' %>
-  
+
   <%= yield :extra_footer %>
 </body>
 </html>
