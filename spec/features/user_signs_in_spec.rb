@@ -26,4 +26,32 @@ feature 'user signs in', %Q{
     expect(page).to have_content('Invalid Email or password')
     expect(page).to_not have_content('Sign Out')
   end
+
+  scenario 'shows correct links for admin' do
+    user = User.create(email: "yoyo@gmail.com", username: "yoyo", password: "123456", role: "admin")
+
+    visit new_user_session_path
+
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+
+    click_button 'Log in'
+
+    expect(page).to have_link('Admin Section')
+    expect(page).to have_link('Sign Out')
+  end
+
+  scenario "shows correct links for member" do
+    user = FactoryBot.create(:user)
+
+    visit new_user_session_path
+
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+
+    click_button 'Log in'
+
+    expect(page).to have_link('Sign Out')
+    expect(page).to_not have_link('Admin Section')
+  end
 end
