@@ -13,15 +13,19 @@
     <h1><a href="/">Parks and Reviews</a></h1>
 
     <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
+      <div class="right">
+        <%- if user_signed_in? -%>
+        <img class="thumbnail" src=<%= current_user.profile_photo %>>
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+          <% if current_user.admin? %>
+            <li><%= link_to "Admin Section", root_path %></li>
+          <% end %>
         <%- else -%>
           <%= link_to 'Sign Up', new_user_registration_path %>
-          <br />
+          <br>
           <%= link_to 'Sign In', new_user_session_path %>
         <%- end -%>
-      </ul>
+      </div>
     </section>
   </nav>
 
