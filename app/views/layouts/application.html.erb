@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Parks and Reviews</title>
+  <title>Parks And Reviews</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
@@ -12,17 +12,19 @@
     <h1><a href="/">ParksAndReviews</a></h1>
 
     <section class="top-bar-section">
-      <ul class="right">
+      <div class="right">
         <%- if user_signed_in? -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <img class="thumbnail" src=<%= current_user.profile_photo %>>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
           <% if current_user.admin? %>
             <li><%= link_to "Admin Section", root_path %></li>
           <% end %>
         <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <%= link_to 'Sign Up', new_user_registration_path %>
+          <br>
+          <%= link_to 'Sign In', new_user_session_path %>
         <%- end -%>
-      </ul>
+      </div>
     </section>
   </nav>
 
