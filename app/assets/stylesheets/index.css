@@ -3,7 +3,17 @@
   width: 800px;
   border-radius: 10px;
 }
+.body {
+  background-color: #FAF2E4;
+}
+a {
+  background-color: white;
+}
 
+.index-title {
+  color: #005236;
+  font-size: 38px;
+}
 .image-wrapper {
   width: 80%;
   height: 100%;
@@ -24,6 +34,7 @@
 }
 
 .overlay-fade-in p {
+  font-family: 'Special Elite', cursive;
   letter-spacing: 0.15em;
   color: #f4f4f4;
   font-size: 24px;
@@ -41,6 +52,7 @@
 }
 
 .overlay-fade-in h2 {
+  font-family: 'Special Elite', cursive;
   color: #f4f4f4;
   font-size: 38px;
   margin-top: 40%;
