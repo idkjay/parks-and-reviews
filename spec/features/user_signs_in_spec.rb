@@ -28,16 +28,18 @@ feature 'user signs in', %Q{
   end
 
   scenario 'shows correct links for admin' do
-    user = User.create(email: "yoyo@gmail.com", username: "yoyo", password: "123456", role: "admin")
+    auser = FactoryBot.create(:user)
+    auser.role = "admin"
+    auser.save
 
     visit new_user_session_path
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
+    fill_in 'Email', with: auser.email
+    fill_in 'Password', with: auser.password
 
     click_button 'Log in'
 
-    expect(page).to have_link('Admin Section')
+    expect(page).to have_content('Admin Section')
     expect(page).to have_link('Sign Out')
   end
 
