@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, presence: true
+  validates :profile_photo, presence: true
+
+  mount_uploader :profile_photo, ProfilePhotoUploader
 
   def admin?
     role == "admin"
