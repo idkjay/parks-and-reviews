@@ -1,6 +1,7 @@
 import React from "react"
 
 const ParkTile = props => {
+
   return (
     <div className="row" align="center">
       <div className="columns small-10">
@@ -16,4 +17,5 @@ const ParkTile = props => {
     </div>
   )
 }
+
 export default ParkTile
