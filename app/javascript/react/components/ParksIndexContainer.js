@@ -18,8 +18,7 @@ const ParksIndexContainer = props => {
     })
     .then(response => response.json())
     .then(body => {
-      let park = body
-      setPark(park)
+      setPark(body.parks)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
