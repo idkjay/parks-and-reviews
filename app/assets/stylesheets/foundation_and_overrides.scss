@@ -55,7 +55,12 @@
 // @include motion-ui-transitions;
 // @include motion-ui-animations;
 
-body, h2 {
-  font-family: "Lucida Console", Monaco, monospace;
+body, h2, h3, h1 {
+  font-family: 'Special Elite', cursive;
+  letter-spacing: 0.15em;
+  background-color: #FAF2E4;
+}
+
+.top-bar, .top-bar-section, .right {
   background-color: #FAF2E4;
 }

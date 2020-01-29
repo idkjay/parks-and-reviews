@@ -4,6 +4,15 @@
   border-radius: 10px;
 }
 
+.body {
+  background-color: #FAF2E4;
+}
+
+.index-title {
+  color: #005236;
+  font-size: 38px;
+}
+
 .image-wrapper {
   width: 80%;
   height: 100%;
@@ -24,10 +33,11 @@
 }
 
 .overlay-fade-in p {
+  font-family: 'Special Elite', cursive;
   letter-spacing: 0.15em;
   color: #f4f4f4;
   font-size: 24px;
-  opacity: 0;
+  opacity: 1;
   transition: all 0.2s linear;
 }
 
@@ -35,35 +45,24 @@
   transition: all 0.2s linear;
 }
 
-.overlay-fade-in .image-overlay-content {
+.overlay-fade-in .image-overlay-content h2{
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+}
+
+.overlay-fade-in .image-overlay-content p{
   opacity: 0;
   transition: all 0.4s ease-in-out;
 }
 
 .overlay-fade-in h2 {
+  font-family: 'Special Elite', cursive;
   color: #f4f4f4;
   font-size: 38px;
   margin-top: 40%;
-  opacity: 0;
+  opacity: 1;
   background: rgba(0, 0, 0, 0);
   transition: all 0.2s ease-in-out;
-}
-
-.overlay-fade-in .button {
-  display: inline-block;
-  text-decoration: none;
-  padding: 7px 14px;
-  background: #FFF;
-  color: #f4f4f4;
-  text-transform: uppercase;
-  box-shadow: 0 0 1px #000;
-  position: relative;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-}
-
-.overlay-fade-in .button:hover {
-  box-shadow: 0 0 5px #000;
 }
 
 .overlay-fade-in:hover img {
@@ -74,14 +73,10 @@
   opacity: 1;
 }
 
-.overlay-fade-in:hover h2, .overlay-fade-in p, .overlay-fade-in .button {
+.overlay-fade-in:hover p, .overlay-fade-in {
   opacity: 1;
 }
 
 .overlay-fade-in:hover p {
-  transition-delay: 0.1s;
-}
-
-.overlay-fade-in:hover .button {
-  transition-delay: 0.2s;
+  transition-delay: 0.0s;
 }
