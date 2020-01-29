@@ -19,6 +19,7 @@ feature 'user registers', %Q{
     fill_in 'Username', with: 'JohnExample'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
+    attach_file :user_profile_photo, "#{Rails.root}/spec/support/images/photo.png"
 
     click_button 'Sign up'
 
