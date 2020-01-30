@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react"
 
 import ParkTile from "./ParkTile"
+// import ParksShowContainer from "./ParkShowContainer"
 
 const ParksIndexContainer = props => {
-  const [ getPark, setPark ] = useState([])
+  const [ parks, setParks ] = useState([])
 
   useEffect(() => {
-    fetch("/api/v1/parks.json")
+    fetch("/api/v1/parks")
     .then(response => {
       if (response.ok) {
         return response
@@ -18,12 +19,12 @@ const ParksIndexContainer = props => {
     })
     .then(response => response.json())
     .then(body => {
-      setPark(body.parks)
+      setParks(body.parks)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
 
-  const parkTiles = getPark.map(park => {
+  const parkTiles = parks.map(park => {
     return(
       <ParkTile
         key={park.id}

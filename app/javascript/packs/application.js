@@ -9,19 +9,7 @@ import RedBox from 'redbox-react'
 
 document.addEventListener('DOMContentLoaded', () => {
   let reactElement = document.getElementById('app')
-
-  // if (reactElement) {
-  //   if(window.railsEnv && window.railsEnv === 'development'){
-  //     try {
-  //       render(<App />, reactElement)
-  //     } catch (e) {
-  //       render(<RedBox error={e} />, reactElement)
-  //     }
-  //   }
-  //   else {
-  //     render(<App />, reactElement)
-  //   }
-  // }
+  
   if (reactElement) {
     ReactDOM.render(
       <App />,
