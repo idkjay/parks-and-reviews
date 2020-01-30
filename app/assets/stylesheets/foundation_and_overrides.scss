@@ -56,11 +56,17 @@
 // @include motion-ui-animations;
 
 body, h2, h3, h1 {
-  font-family: 'Special Elite', cursive;
+  font-family: 'Bebas Neue', cursive;
   letter-spacing: 0.15em;
   background-color: #FAF2E4;
 }
 
+h1, a {
+  font-size: 60px;
+  color: #005236;
+}
+
 .top-bar, .top-bar-section, .right {
   background-color: #FAF2E4;
+  font-size: 30px;
 }

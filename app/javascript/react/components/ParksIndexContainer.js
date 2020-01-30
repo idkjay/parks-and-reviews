@@ -40,7 +40,7 @@ const ParksIndexContainer = props => {
 
   return (
     <div>
-      <h3 class = "index-title" align="center">Our National Parks</h3>
+      <h3 class = "index-title" align="center">Explore Our National Parks</h3>
       {parkTiles}
     </div>
   )
