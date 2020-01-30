@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 import ParkTile from "./ParkTile"
+import NewParkForm from "./NewParkForm"
 
 const ParksIndexContainer = props => {
   const [ getPark, setPark ] = useState([])
@@ -23,6 +24,8 @@ const ParksIndexContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
 
+
+
   const parkTiles = getPark.map(park => {
     return(
       <ParkTile
@@ -40,7 +43,7 @@ const ParksIndexContainer = props => {
 
   return (
     <div>
-      <h3 class = "index-title" align="center">Our National Parks</h3>
+      <h3 className = "index-title" align="center">Our National Parks</h3>
       {parkTiles}
     </div>
   )
