@@ -20,7 +20,8 @@ class Api::V1::ParksController < ApplicationController
     end
   end
 
+  private
   def park_params
-    params.permit(:name, :city, :state, :zip, :rating, :photo )
+    params.permit(:name, :city, :state, :zip, :rating, :photo ) #try adding in require
   end
 end
