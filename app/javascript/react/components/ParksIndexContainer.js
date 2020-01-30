@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-
 import ParkTile from "./ParkTile"
 import NewParkForm from "./NewParkForm"
 
@@ -23,8 +22,6 @@ const ParksIndexContainer = props => {
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
-
-
 
   const parkTiles = getPark.map(park => {
     return(

@@ -27,11 +27,11 @@ const NewParkForm = props => {
     })
     .then(response => {
       if (response.ok) {
-        return response;
+        return response
       } else {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
-        throw(error);
+        throw(error)
       }
     })
     .then(response =>  response.json())
@@ -53,6 +53,7 @@ const NewParkForm = props => {
       event.currentTarget.value
     })
   }
+
   const handleSubmit = event => {
     event.preventDefault()
     if(validForSubmission()) {
@@ -93,6 +94,7 @@ const NewParkForm = props => {
         <ErrorList
           errors={errors}
         />
+
         <label htmlFor="name">
           Park Name:
           <input
@@ -138,7 +140,7 @@ const NewParkForm = props => {
         </label>
 
         <label htmlFor="rating">
-          Park Rating:
+          Park Rating 1-5:
           <textarea
             type="rating"
             name="rating"
@@ -161,13 +163,12 @@ const NewParkForm = props => {
 
         <div className="button-group">
           <input className="button" type="submit" value="Submit" />
-          <button
-            className="button"
-            onClick={clearForm}>Clear
-          </button>
         </div>
-
       </form>
+      <button
+        className="button"
+        onClick={clearForm}>Clear
+      </button>
     </div>
   )
 }
