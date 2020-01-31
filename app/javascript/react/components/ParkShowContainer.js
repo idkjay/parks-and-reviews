@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Redirect } from 'react-router-dom'
 
 import ParkShow from "./ParkShow"
 import ReviewTile from "./ReviewTile"
@@ -70,6 +71,8 @@ const ParksShowContainer = props => {
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }, [])
+
+
 
     let parkReturn
 

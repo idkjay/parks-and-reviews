@@ -14,7 +14,6 @@ const ParkShow = props => {
   }
 
   const handleSubmit = (event) => {
-    event.preventDefault()
     props.addNewReview(newReview)
   }
 
@@ -27,7 +26,7 @@ const ParkShow = props => {
       <p id="description">{props.description}</p>
 
 
-      <form onSubmit={handleSubmit} action={`/parks/${props.id}/reviews`} method="post">
+      <form onSubmit={handleSubmit} >
         <label>
           Rating:
           <input onChange={handleInputChange} type="text" id="rating" value={newReview.rating}/>

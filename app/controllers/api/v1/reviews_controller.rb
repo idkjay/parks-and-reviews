@@ -1,7 +1,8 @@
 class Api::V1::ReviewsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
   def index
-    render json: Review.all
+    park = Park.find(params["park_id"])
+    render json: park.reviews
   end
 
   def create
