@@ -5,6 +5,9 @@ class Api::V1::ParksController < ApplicationController
     render json: Park.all
   end
 
+  def new
+  end
+
   def create
     park = Park.create(park_params)
     if park.save
@@ -16,6 +19,6 @@ class Api::V1::ParksController < ApplicationController
 
   private
   def park_params
-    params.permit(:name, :city, :state, :zip, :rating, :photo )
+    params.permit(:name, :city, :state, :zip, :rating, :photo)
   end
 end

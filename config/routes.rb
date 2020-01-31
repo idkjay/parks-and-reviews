@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
 
-  get "/parks/new", to: 'static_pages#create'
+  get "/api/v1/parks/new", to: 'static_pages#create'
   get "/", to: 'static_pages#index'
   get "/parks", to: 'static_pages#index'
 
@@ -9,8 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :parks, only: [:index, :create]
+      resources :parks, only: [:new, :index, :create]
     end
   end
-  resources :parks, only: [:new]
 end
