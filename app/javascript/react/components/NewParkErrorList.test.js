@@ -7,7 +7,6 @@ Enzyme.configure({ adapter: new Adapter() })
 
 import NewParkErrorList from "./NewParkErrorList"
 
-
 describe("NewParkErrorList", () => {
   let wrapper
   let errors
