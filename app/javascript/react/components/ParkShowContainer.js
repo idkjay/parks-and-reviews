@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react"
 import { Redirect } from 'react-router-dom'
+import _ from 'lodash'
 
 import ParkShow from "./ParkShow"
 import ReviewTile from "./ReviewTile"
+import ReviewForm from "./ReviewForm"
 
 const ParksShowContainer = props => {
   const [ parkInfo, setParkInfo ] = useState({})
   const [ reviews, setReviews ] = useState([])
+  const [newReview, setNewReview] = useState({
+    rating: "",
+    body: ""
+  })
+  const[errors, setErrors] = useState("")
 
   let parkId = props.match.params.id
 
@@ -49,7 +56,11 @@ const ParksShowContainer = props => {
       })
       .then(response => response.json())
       .then(response => {
-        setReviews([...reviews, response])
+        if (response.review) {
+          setReviews([...reviews, response.review])
+        } else {
+          setErrors(response.errors)
+        }
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
@@ -103,10 +114,53 @@ const ParksShowContainer = props => {
       )
     })
 
+  const handleInputChange = (event) => {
+    setNewReview({
+      ...newReview,
+      [event.currentTarget.id]: event.currentTarget.value
+    })
+  }
+
+  const validSubmission = () => {
+    let submitErrors = {}
+    const requiredFields = ["rating", "body"]
+    requiredFields.forEach((field) => {
+      if (newReview[field].trim() === "") {
+        submitErrors = {
+          ...submitErrors, [field]: "is blank"
+        }
+      }
+    })
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    if (validSubmission()) {
+      addNewReview(newReview)
+      clearForm()
+    }
+  }
+
+  const clearForm = (event) => {
+    setNewReview({
+      rating: "",
+      body: ""
+    })
+  }
+
   return(
     <div>
       {parkReturn}
       {reviewTiles}
+      <ReviewForm
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
+        newReview={newReview}
+        errors={errors}
+        clearForm={clearForm}
+      />
     </div>
   )
 }
