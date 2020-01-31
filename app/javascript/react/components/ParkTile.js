@@ -25,4 +25,4 @@ const ParkTile = props => {
   )
 }
 
-export default ParkTile
+export default ParkTile;

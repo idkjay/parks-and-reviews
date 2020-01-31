@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :profile_photo, presence: true
 
+  has_many :reviews
+
   mount_uploader :profile_photo, ProfilePhotoUploader
 
   def admin?
