@@ -42,4 +42,41 @@ RSpec.describe Api::V1::ParksController, type: :controller do
       expect(returned_json["parks"][1]["photo"]).to eq "http://hellyeah.com"
     end
   end
+
+  describe "POST#create" do
+      # new_park = Park.new(
+      #   name: "Park spot",
+      #   city: "Park city",
+      #   state: "Park state",
+      #   zip:"4567",
+      #   rating: 2,
+      #   photo: "http://photo.com"
+      # ).to_json
+      #
+      # let!(:new_park_hash) { Park.new(
+      #   name: "Mellowpebble",
+      #   city: "Pablo",
+      #   state: "Mellowfornia",
+      #   zip: "111111",
+      #   rating: 3,
+      #   photo: "http://hellno.com"
+      # ) }
+
+
+    it "adds a new park to the database" do
+      post_json = {
+        name: "Mellowpebble",
+        city: "Pablo",
+        state: "Mellowfornia",
+        zip: "1111",
+        rating: 3,
+        photo: "http://hellno.com"
+      }.to_json
+
+      prev_count = Park.count
+      post(:create, body: post_json)
+      binding.pry
+      expect(Park.count).to eq(prev_count + 1)
+    end
+  end
 end

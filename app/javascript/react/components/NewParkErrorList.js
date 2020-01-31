@@ -1,7 +1,7 @@
 import React from "react"
 import _ from "lodash"
 
-const ErrorList = props => {
+const NewParkErrorList = props => {
   const errantFields = Object.keys(props.errors)
   if (errantFields.length > 0) {
     let index = 0
@@ -23,4 +23,4 @@ const ErrorList = props => {
   }
 }
 
-export default ErrorList
+export default NewParkErrorList

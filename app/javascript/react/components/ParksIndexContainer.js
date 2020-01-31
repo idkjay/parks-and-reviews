@@ -3,7 +3,7 @@ import ParkTile from "./ParkTile"
 import NewParkForm from "./NewParkForm"
 
 const ParksIndexContainer = props => {
-  const [ getPark, setPark ] = useState([])
+  const [getPark, setPark] = useState([])
 
   useEffect(() => {
     fetch("/api/v1/parks.json")
@@ -25,16 +25,18 @@ const ParksIndexContainer = props => {
 
   const parkTiles = getPark.map(park => {
     return(
-      <ParkTile
-        key={park.id}
-        id={park.id}
-        name={park.name}
-        city={park.city}
-        state={park.state}
-        zip={park.zip}
-        rating={park.rating}
-        photo={park.photo}
-      />
+      <div>
+        <ParkTile
+          key={park.id}
+          id={park.id}
+          name={park.name}
+          city={park.city}
+          state={park.state}
+          zip={park.zip}
+          rating={park.rating}
+          photo={park.photo}
+          />
+      </div>
     )
   })
 

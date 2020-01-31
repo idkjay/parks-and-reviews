@@ -14,14 +14,8 @@ class Api::V1::ParksController < ApplicationController
     end
   end
 
-  def authorize_user
-    if !current_user || !current_user.admin?
-      redirect_to root_path
-    end
-  end
-
   private
   def park_params
-    params.permit(:name, :city, :state, :zip, :rating, :photo ) #try adding in require
+    params.permit(:name, :city, :state, :zip, :rating, :photo )
   end
 end

@@ -12,5 +12,5 @@ Rails.application.routes.draw do
       resources :parks, only: [:index, :create]
     end
   end
-  resources :parks, only: [:new, :create]
+  resources :parks, only: [:new]
 end

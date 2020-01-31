@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
-import { Link, Redirect } from "react-router-dom"
+import { Redirect } from "react-router-dom"
 import _ from "lodash"
-import ErrorList from "./ErrorList"
+import NewParkErrorList from "./NewParkErrorList"
 
 const NewParkForm = props => {
   const [shouldRedirect, setShouldRedirect] = useState(false)
-  const [ newPark, setNewPark ] = useState({
+  const [errors, setErrors] = useState({})
+  const [newPark, setNewPark] = useState({
     name: "",
     city: "",
     state: "",
@@ -13,7 +14,10 @@ const NewParkForm = props => {
     rating: "",
     photo: ""
   })
-  const [ errors, setErrors ] = useState({})
+
+  const states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
+
+  const stateOptions = states.map((state) => <option key={state} value={state}>{state}</option>)
 
   const addNewPark = () => {
     fetch("/api/v1/parks", {
@@ -76,22 +80,12 @@ const NewParkForm = props => {
     return _.isEmpty(submitErrors)
   }
 
-  const clearForm = event => {
-    setNewPark({
-      name: "",
-      city: "",
-      state: "",
-      zip: "",
-      rating: "",
-      photo: ""
-    })
-  }
-
   return (
-    <div>
-      <h2>New Park Form</h2>
+    <div className="grid-container">
       <form onSubmit={handleSubmit} className="new-name-form callout">
-        <ErrorList
+        <h2 className="park-form-title">New Park Form</h2>
+
+        <NewParkErrorList
           errors={errors}
         />
 
@@ -103,13 +97,13 @@ const NewParkForm = props => {
             id="name"
             value={newPark.name}
             onChange={handleChange}
-            />
+          />
         </label>
 
         <label htmlFor="city">
           Park City:
-          <textarea
-            type="city"
+          <input
+            type="text"
             name="city"
             id="city"
             value={newPark.city}
@@ -119,19 +113,16 @@ const NewParkForm = props => {
 
         <label htmlFor="state">
           Park State:
-          <textarea
-            type="state"
-            name="state"
-            id="state"
-            value={newPark.state}
-            onChange={handleChange}
-          />
+          <select value={newPark.state} type="state" name="state" id="state" onChange={handleChange}>
+            <option></option>
+            {stateOptions}
+          </select>
         </label>
 
         <label htmlFor="zip">
           Park Zip:
-          <textarea
-            type="zip"
+          <input
+            type="text"
             name="zip"
             id="zip"
             value={newPark.zip}
@@ -139,21 +130,10 @@ const NewParkForm = props => {
           />
         </label>
 
-        <label htmlFor="rating">
-          Park Rating 1-5:
-          <textarea
-            type="rating"
-            name="rating"
-            id="rating"
-            value={newPark.rating}
-            onChange={handleChange}
-          />
-        </label>
-
         <label htmlFor="photo">
           Park Image URL:
-          <textarea
-            type="photo"
+          <input
+            type="text"
             name="photo"
             id="photo"
             value={newPark.photo}
@@ -161,14 +141,22 @@ const NewParkForm = props => {
           />
         </label>
 
+        <label htmlFor="rating">
+          Park Rating:
+          <input
+            type="text"
+            name="rating"
+            id="rating"
+            value={newPark.rating}
+            onChange={handleChange}
+          />
+        </label>
+
         <div className="button-group">
           <input className="button" type="submit" value="Submit" />
         </div>
+
       </form>
-      <button
-        className="button"
-        onClick={clearForm}>Clear
-      </button>
     </div>
   )
 }
