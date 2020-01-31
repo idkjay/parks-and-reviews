@@ -89,8 +89,8 @@ const NewParkForm = props => {
           errors={errors}
         />
 
-        <label htmlFor="name">
-          Park Name:
+      <label htmlFor="name">
+        Park Name:
           <input
             type="text"
             name="name"
@@ -98,7 +98,7 @@ const NewParkForm = props => {
             value={newPark.name}
             onChange={handleChange}
           />
-        </label>
+      </label>
 
         <label htmlFor="city">
           Park City:
