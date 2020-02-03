@@ -3,36 +3,42 @@ import Enzyme, { mount } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
 Enzyme.configure({ adapter: new Adapter() })
 
-import ParkTile from "./ParkTile"
+import ParkShow from "./ParkShow"
 import { BrowserRouter } from "react-router-dom"
 
-describe("ParkTile", () => {
+describe("ParkShow", () => {
   let wrapper
 
   beforeEach(() => {
     wrapper = mount(
       <BrowserRouter>
-        <ParkTile
+        <ParkShow
           photo="http://fakeurl.com/park"
           name="Fake Tinker Falls"
           city="Fake Tully"
           state="Fake New York"
+          zip="fake 131593"
+          description="This is fake"
           rating="5"
         />
       </BrowserRouter>
     )
   })
 
-  it("should render an h2 element containing the park name received via props", () => {
+  it("should render an h1 element containing the park name received via props", () => {
     expect(wrapper.find("#name").text()).toBe("Fake Tinker Falls")
   })
 
-  it("should render an h3 element containing the park city, state, and rating received via props", () => {
-    expect(wrapper.find("#location").text()).toBe("Fake Tully, Fake New York")
+  it("should render an h3 element containing the park city, state, zip, and rating received via props", () => {
+    expect(wrapper.find("#location").text()).toBe("Fake Tully, Fake New York fake 131593")
   })
 
   it("should render an h3 element containing the park rating received via props", () => {
-    expect(wrapper.find("#rating").text()).toBe("5 stars")
+    expect(wrapper.find("#park-rating").text()).toBe("Rating: 5")
+  })
+
+  it("should render an p element containing the park description received via props", () => {
+    expect(wrapper.find("#description").text()).toBe("This is fake")
   })
 
   it("should render an img tag with the specific props", () => {
