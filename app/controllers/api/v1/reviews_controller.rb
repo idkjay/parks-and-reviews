@@ -1,5 +1,7 @@
 class Api::V1::ReviewsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create]
+  # skip_before_action :verify_authenticity_token, only: [:create]
+  protect_from_forgery unless: -> { request.format.json? }
+
   def index
     park = Park.find(params["park_id"])
     render json: park.reviews
@@ -20,6 +22,12 @@ class Api::V1::ReviewsController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def destroy
+    park = Park.find(params["park_id"])
+    Review.destroy(params[:id])
+    render json: park.reviews
   end
 
   private
