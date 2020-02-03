@@ -7,7 +7,7 @@ const ParkTile = props => {
       <div className="columns small-10">
         <div>
           <div className="image-wrapper wrapper overlay-fade-in">
-            <img className="photo" height="100" width="500" src={props.photo}/>
+            <img className="photo" src={props.photo}/>
             <br />
             <div className="image-overlay-content">
               <h2 id="name">{props.name}</h2>
