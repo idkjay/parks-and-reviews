@@ -7,7 +7,11 @@ class Api::V1::ParksController < ApplicationController
 
   def new
   end
-
+  
+  def show
+    render json: Park.find(params["id"]), serializer: ParkShowSerializer
+  end
+  
   def create
     park = Park.create(park_params)
     if park.save
