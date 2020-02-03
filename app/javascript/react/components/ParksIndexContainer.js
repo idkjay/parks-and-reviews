@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 
 import ParkTile from "./ParkTile"
-// import ParksShowContainer from "./ParkShowContainer"
 
 const ParksIndexContainer = props => {
   const [ parks, setParks ] = useState([])
