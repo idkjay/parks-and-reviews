@@ -83,25 +83,6 @@ const ParksShowContainer = props => {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }, [])
 
-
-
-    let parkReturn
-
-    if (parkInfo) {
-      parkReturn = <ParkShow
-        key={parkInfo.id}
-        id={parkInfo.id}
-        name={parkInfo.name}
-        city= {parkInfo.city}
-        state={parkInfo.state}
-        zip={parkInfo.zip}
-        rating={parkInfo.rating}
-        description={parkInfo.description}
-        photo={parkInfo.photo}
-        addNewReview={addNewReview}
-      />
-    }
-
     const reviewTiles = reviews.map((review) => {
       return(
         <ReviewTile
@@ -152,7 +133,18 @@ const ParksShowContainer = props => {
 
   return(
     <div>
-      {parkReturn}
+      <ParkShow
+        key={parkInfo.id}
+        id={parkInfo.id}
+        name={parkInfo.name}
+        city= {parkInfo.city}
+        state={parkInfo.state}
+        zip={parkInfo.zip}
+        rating={parkInfo.rating}
+        description={parkInfo.description}
+        photo={parkInfo.photo}
+        addNewReview={addNewReview}
+      />
       {reviewTiles}
       <ReviewForm
         handleInputChange={handleInputChange}

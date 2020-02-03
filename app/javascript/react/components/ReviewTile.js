@@ -1,7 +1,5 @@
 import React from "react"
 
-import ParkShowContainer from "./ParkShowContainer"
-
 const ReviewTile = props => {
 
   return (
