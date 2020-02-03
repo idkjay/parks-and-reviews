@@ -1,7 +1,8 @@
 class Api::V1::ReviewsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
   def index
-    render json: Review.all
+    park = Park.find(params["park_id"])
+    render json: park.reviews
   end
 
   def create
@@ -14,7 +15,7 @@ class Api::V1::ReviewsController < ApplicationController
       if review.save
         render json: { review: review }
       else
-        render json: { error: review.errors.full_messages }, status: :unprocessable_entity
+        render json: { errors: review.errors.full_messages.to_sentence }
       end
     else
       redirect_to root_path
