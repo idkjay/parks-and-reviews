@@ -1,5 +1,5 @@
 class Api::V1::ParksController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     render json: Park.all
@@ -23,6 +23,6 @@ class Api::V1::ParksController < ApplicationController
 
   private
   def park_params
-    params.permit(:name, :city, :state, :zip, :rating, :photo)
+    params.permit(:name, :city, :state, :zip, :rating, :photo, :description)
   end
 end
