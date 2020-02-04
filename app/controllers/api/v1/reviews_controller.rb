@@ -1,5 +1,4 @@
 class Api::V1::ReviewsController < ApplicationController
-  # skip_before_action :verify_authenticity_token, only: [:create]
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
@@ -15,9 +14,9 @@ class Api::V1::ReviewsController < ApplicationController
       review.park = park
 
       if review.save
-        render json: { review: review }
+        render json: review
       else
-        render json: { errors: review.errors.full_messages.to_sentence }
+        render json: review.errors.full_messages.to_sentence
       end
     else
       redirect_to root_path
@@ -26,13 +25,36 @@ class Api::V1::ReviewsController < ApplicationController
 
   def destroy
     park = Park.find(params["park_id"])
-    Review.destroy(params[:id])
-    render json: park.reviews
+    review = Review.find(params["id"])
+
+    if current_user == review.user
+      review.destroy
+      render json: park.reviews
+    else
+      render json: park.reviews
+    end
+  end
+
+  def edit
+    park = Park.find(params["park_id"])
+    review = Review.find(params["id"])
+  end
+
+  def update
+    park = Park.find(params["park_id"])
+    review = Review.find(params["id"])
+
+    if current_user == review.user
+      review.update_attributes(review_params)
+      render json: park.reviews
+    else
+      render json: park.reviews
+    end
   end
 
   private
 
   def review_params
-    params.permit(:rating, :body)
+    params.permit(:rating, :body, :id)
   end
 end

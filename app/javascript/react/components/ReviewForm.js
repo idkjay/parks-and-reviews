@@ -3,7 +3,6 @@ import ErrorList from "./ErrorList"
 import _ from "lodash"
 
 const ReviewForm = ({ handleSubmit, handleInputChange, clearForm, newReview, errors }) => {
-
   return(
     <form id="review-form" onSubmit={handleSubmit} >
       <ErrorList errors={errors}/>
