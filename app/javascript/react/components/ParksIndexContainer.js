@@ -3,10 +3,10 @@ import ParkTile from "./ParkTile"
 import NewParkForm from "./NewParkForm"
 
 const ParksIndexContainer = props => {
-  const [getPark, setPark] = useState([])
+  const [ parks, setParks ] = useState([])
 
   useEffect(() => {
-    fetch("/api/v1/parks.json")
+    fetch("/api/v1/parks")
     .then(response => {
       if (response.ok) {
         return response
@@ -18,12 +18,12 @@ const ParksIndexContainer = props => {
     })
     .then(response => response.json())
     .then(body => {
-      setPark(body.parks)
+      setParks(body.parks)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
 
-  const parkTiles = getPark.map(park => {
+  const parkTiles = parks.map(park => {
     return(
       <div>
         <ParkTile
@@ -42,7 +42,7 @@ const ParksIndexContainer = props => {
 
   return (
     <div>
-      <h3 className = "index-title" align="center">Our National Parks</h3>
+      <h3 className = "index-title">Explore Our National Parks</h3>
       {parkTiles}
     </div>
   )
