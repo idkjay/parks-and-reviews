@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import ParkTile from "./ParkTile"
-import NewParkForm from "./NewParkForm"
 
 const ParksIndexContainer = props => {
   const [ parks, setParks ] = useState([])
