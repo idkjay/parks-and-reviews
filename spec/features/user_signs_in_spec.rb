@@ -39,7 +39,7 @@ feature 'user signs in', %Q{
 
     click_button 'Log in'
 
-    expect(page).to have_content('Admin Section')
+    expect(page).to have_content('New Park')
     expect(page).to have_link('Sign Out')
   end
 
@@ -54,6 +54,6 @@ feature 'user signs in', %Q{
     click_button 'Log in'
 
     expect(page).to have_link('Sign Out')
-    expect(page).to_not have_link('Admin Section')
+    expect(page).to_not have_link('New Park')
   end
 end
