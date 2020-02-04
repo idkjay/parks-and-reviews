@@ -4,9 +4,11 @@ class ReviewSerializer < ActiveModel::Serializer
   belongs_to :user, if: :current_user?
   belongs_to :park
 
-  has_many :votes
-
   def current_user?
     object.user == scope
+  end
+
+  def votes
+    object.votes
   end
 end

@@ -12,12 +12,9 @@ class Api::V1::ReviewsController < ApplicationController
       review.user = current_user
       park = Park.find(params["park_id"])
       review.park = park
-      # binding.pry
-      # review.votes << Vote.create(user_id: review.user.id, review_id: review.id, votes: 0)
 
       if review.save
-        render json: { review: review }
-
+        render json: review
       else
         render json: { errors: review.errors.full_messages.to_sentence }
       end
@@ -29,6 +26,6 @@ class Api::V1::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.permit(:rating, :body)
+    params.require(:review).permit(:rating, :body)
   end
 end

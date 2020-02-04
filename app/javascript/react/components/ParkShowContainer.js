@@ -30,6 +30,7 @@ const ParksShowContainer = props => {
     })
     .then(response => response.json())
     .then(response => {
+      debugger
       setParkInfo(response.park)
       setReviews(response.park.reviews)
     })
@@ -58,7 +59,6 @@ const ParksShowContainer = props => {
       .then(response => response.json())
       .then(response => {
         if (response.review) {
-          debugger
           setReviews([...reviews, response.review])
         } else {
           setErrors(response.errors)
