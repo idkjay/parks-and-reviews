@@ -1,7 +1,8 @@
 .photo {
-  height: 600px;
-  width: 800px;
+  height: 100%;
+  width: 100%;
   border-radius: 10px;
+  opacity: 1;
 }
 
 .body {
@@ -14,8 +15,7 @@
 }
 
 .image-wrapper {
-  width: 80%;
-  height: 100%;
+  width: 50%;
   overflow: hidden;
   position: relative;
   text-align: center;
@@ -45,32 +45,30 @@
   transition: all 0.2s linear;
 }
 
-.overlay-fade-in .image-overlay-content h2{
-  opacity: 1;
-  transition: all 0.4s ease-in-out;
-}
-
 .overlay-fade-in .image-overlay-content p{
   opacity: 0;
-  transition: all 0.4s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 
 .overlay-fade-in h2 {
   font-family: 'Special Elite', cursive;
+  font-weight: 300;
   color: #f4f4f4;
   font-size: 38px;
   margin-top: 40%;
   opacity: 1;
-  background: rgba(0, 0, 0, 0);
-  transition: all 0.2s ease-in-out;
+  background: rgba(0, 0, 0, 0.0);
 }
 
 .overlay-fade-in:hover img {
-  transform: scale(1.2);
+  transform: scale(1.7);
+  transition: all 1.5s ease-in-out;
+  opacity: 0.7;
 }
 
 .overlay-fade-in:hover .image-overlay-content {
-  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 2s ease-in-out;
 }
 
 .overlay-fade-in:hover p, .overlay-fade-in {
