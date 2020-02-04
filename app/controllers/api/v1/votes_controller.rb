@@ -5,8 +5,16 @@ class Api::V1::VotesController < ApplicationController
   end
 
   def create
+    vote = Vote.new(vote_params)
   end
 
   def update
+
+  end
+
+  private 
+
+  def vote_params
+    params.require(:vote).permit(:user_id, :review_id)
   end
 end

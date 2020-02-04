@@ -30,9 +30,9 @@ const ReviewTile = props => {
       <p id="body">{props.body}</p>
       <VoteTile
         votes={props.votes}
-       />
+      />
     </div>
   )
 }
 
-export default ReviewTile
+export default ReviewTile;

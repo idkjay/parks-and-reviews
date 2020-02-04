@@ -1,10 +1,13 @@
-import React from 'react'
+import React from "react"
 
 const VoteTile = props => {
   let votes;
   if (props.votes.length == 0) {
     votes = 0
+  } else {
+    votes = props.votes[0].votes
   }
+
   // if (props.getVotes.length > 0) {
   //   props.getVotes.forEach (vote => {
   //     upvoteCount += vote.upvote
@@ -18,7 +21,9 @@ const VoteTile = props => {
 
   return(
     <div>
-      <button id="upvote" onClick={handleClick}>Votes: {votes}</button>
+      <i id="upvote" className="fa fa-tree up" ></i>
+      {votes}
+      <i id="downvote" className="fa fa-tree down"></i>
     </div>
   )
 }

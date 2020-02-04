@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { Redirect } from 'react-router-dom'
-import _ from 'lodash'
+import { Redirect } from "react-router-dom"
+import _ from "lodash"
 
 import ParkShow from "./ParkShow"
 import ReviewTile from "./ReviewTile"
@@ -58,6 +58,7 @@ const ParksShowContainer = props => {
       .then(response => response.json())
       .then(response => {
         if (response.review) {
+          debugger
           setReviews([...reviews, response.review])
         } else {
           setErrors(response.errors)
@@ -67,7 +68,6 @@ const ParksShowContainer = props => {
     }
 
     const reviewTiles = reviews.map((review) => {
-      debugger
       return(
         <ReviewTile
           key={review.id}
@@ -77,7 +77,7 @@ const ParksShowContainer = props => {
           userId={review.user_id}
           parkId={review.park_id}
           votes={review.votes}
-          />
+        />
       )
     })
 
@@ -131,7 +131,6 @@ const ParksShowContainer = props => {
         photo={parkInfo.photo}
         addNewReview={addNewReview}
       />
-      {reviewTiles}
       <ReviewForm
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
@@ -139,6 +138,7 @@ const ParksShowContainer = props => {
         errors={errors}
         clearForm={clearForm}
       />
+      {reviewTiles}
     </div>
   )
 }
