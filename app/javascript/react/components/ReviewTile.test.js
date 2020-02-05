@@ -25,6 +25,6 @@ describe("ReviewTile", () => {
   })
 
   it("should render an p element containg the review text", () => {
-    expect(wrapper.find("#body").text()).toBe("This is a fake review")
+    expect(wrapper.find("#review-body").text()).toBe("This is a fake review")
   })
 })

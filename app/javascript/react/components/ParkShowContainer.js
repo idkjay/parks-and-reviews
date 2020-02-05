@@ -9,13 +9,68 @@ import ReviewForm from "./ReviewForm"
 const ParksShowContainer = props => {
   const [ parkInfo, setParkInfo ] = useState({})
   const [ reviews, setReviews ] = useState([])
-  const [newReview, setNewReview] = useState({
+  const [ errors, setErrors ] = useState("")
+  const [ newReview, setNewReview ] = useState({
     rating: "",
     body: ""
   })
-  const[errors, setErrors] = useState("")
 
   let parkId = props.match.params.id
+
+  const deleteReview = (reviewId) => {
+    fetch(`/api/v1/parks/${parkId}/reviews/${reviewId}`, {
+      credentials: 'same-origin',
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then((response) => {
+      setReviews(response.reviews)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
+  const updateReview = (editedReview) => {
+    fetch(`/api/v1/parks/${parkId}/reviews/${editedReview.id}`, {
+      credentials: 'same-origin',
+      method: "PATCH",
+      body: JSON.stringify(editedReview),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then((response) => {
+      setReviews(response.reviews)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
 
   useEffect(() => {
     fetch(`/api/v1/parks/${parkId}`)
@@ -31,69 +86,40 @@ const ParksShowContainer = props => {
     .then(response => response.json())
     .then(response => {
       setParkInfo(response.park)
+      setReviews(response.park.reviews)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
 
-    const addNewReview = (formPayload) => {
-      fetch(`/api/v1/parks/${parkId}/reviews`, {
-        credentials: 'same-origin',
-        method: "POST",
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formPayload)
-      })
-      .then(response => {
-        if (response.ok) {
-          return response
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage)
-          throw error
-        }
-      })
-      .then(response => response.json())
-      .then(response => {
-        if (response.review) {
-          setReviews([...reviews, response.review])
-        } else {
-          setErrors(response.errors)
-        }
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
-    }
-
-    useEffect(() => {
-      fetch(`/api/v1/parks/${parkId}/reviews`)
-      .then(response => {
-        if (response.ok) {
-          return response
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage)
-          throw error
-        }
-      })
-      .then(response => response.json())
-      .then(reviewData => {
-        setReviews(reviewData.reviews)
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
-    }, [])
-
-    const reviewTiles = reviews.map((review) => {
-      return(
-        <ReviewTile
-          key={review.id}
-          rating={review.rating}
-          body={review.body}
-          userId={review.user_id}
-          parkId={review.park_id}
-          />
-      )
+  const addNewReview = (formPayload) => {
+    fetch(`/api/v1/parks/${parkId}/reviews`, {
+      credentials: 'same-origin',
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formPayload)
     })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then(response => response.json())
+    .then(response => {
+      if (response.review) {
+        setReviews([...reviews, response.review])
+      } else {
+        setErrors(response.errors)
+      }
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
 
   const handleInputChange = (event) => {
     setNewReview({
@@ -131,6 +157,23 @@ const ParksShowContainer = props => {
     })
   }
 
+  const reviewTiles = reviews.map((review) => {
+    return(
+      <ReviewTile
+        key={review.id}
+        id={review.id}
+        rating={review.rating}
+        body={review.body}
+        userId={review.user_id}
+        parkId={review.park_id}
+        username={review.username}
+        currentUsername={review.current_username}
+        deleteReview={deleteReview}
+        updateReview={updateReview}
+        />
+    )
+  })
+
   return(
     <div>
       <ParkShow
@@ -143,7 +186,6 @@ const ParksShowContainer = props => {
         rating={parkInfo.rating}
         description={parkInfo.description}
         photo={parkInfo.photo}
-        addNewReview={addNewReview}
       />
       {reviewTiles}
       <ReviewForm
