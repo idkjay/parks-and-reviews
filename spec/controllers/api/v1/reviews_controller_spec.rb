@@ -71,22 +71,26 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
 
   describe "DELETE#destroy" do
     it "should delete the review" do
-
+      sign_in user_1
       prev_count = Review.count
 
-      Review.destroy(first_park_review.id)
-
+      delete :destroy, params: {park_id: test_park.id, review: first_park_review, id: first_park_review.id}, format: :json
       expect(Review.count).to eq(prev_count - 1)
     end
   end
 
   describe "PATCH#update" do
     it "should update the review" do
-
-      second_park_review.update_attributes(rating: 5, body: "updated body")
-
-      expect(second_park_review.body).to eq "updated body"
-      expect(second_park_review.rating).to eq 5
+      sign_in user_2
+      review_params = {
+        body: "Edited body",
+        rating: 5,
+        park_id: test_park.id,
+        id: second_park_review.id
+      }
+      put :update, params: review_params, format: :json
+      updated_review = Review.find(second_park_review.id)
+      expect(updated_review.body).to eq "Edited body"
     end
   end
 end
