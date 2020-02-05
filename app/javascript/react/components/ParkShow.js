@@ -10,7 +10,7 @@ const ParkShow = props => {
           <div className="center">
             <img className="image cell small-10 large-7" src={props.photo} id="photo"/>
               <div className="review-margin review-info-box">
-                <h4 className="cell small-10 large-5" id="location">{props.city}, {props.state} {props.zip}</h4>
+                <h4 className="cell small-10 large-5" id="location">{props.state}</h4>
                 <h4 className="cell small-10 large-5" id="park-rating">Rating: {props.rating}</h4>
                 <br />
                 <p className="cell small-10 large-5" id="description">{props.description}</p>

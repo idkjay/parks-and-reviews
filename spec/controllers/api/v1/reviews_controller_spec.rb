@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Api::V1::ReviewsController, type: :controller do
+<<<<<<< HEAD
   let!(:test_park) { Park.create(
     name: "Yellowboulder",
     city: "Boulder",
@@ -27,6 +28,33 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       body: "Review for first park",
       rating: 2,
       user_id: user_1.id,
+=======
+    let!(:test_park) { Park.create(
+      name: "Yellowboulder",
+      state: "Boulderado",
+      description: "A fake one",
+      photo: "http://dasjkdhas.com",
+    ) }
+    let!(:second_test_park) { Park.create(
+      name: "Yellowpebble",
+      state: "Pebblefornia",
+      description: "Another fake one",
+      photo: "http://hellyeah.com"
+    ) }
+
+    let!(:user_1) { FactoryBot.create(:user)}
+    let!(:user_2) { FactoryBot.create(:user)}
+
+    let!(:first_park_review) { Review.create(
+        body: "Review for first park",
+        rating: 2,
+        user_id: user_1.id,
+        park_id: test_park.id
+      )}
+
+    let!(:second_park_review) { Review.create(
+      user_id: user_2.id,
+>>>>>>> 718630040b245de57bb29d830b637f4ef5773078
       park_id: test_park.id,
     )}
 

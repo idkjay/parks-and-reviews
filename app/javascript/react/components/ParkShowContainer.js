@@ -91,6 +91,7 @@ const ParksShowContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
 
+<<<<<<< HEAD
   const addNewReview = (formPayload) => {
     fetch(`/api/v1/parks/${parkId}/reviews`, {
       credentials: 'same-origin',
@@ -109,6 +110,66 @@ const ParksShowContainer = props => {
         error = new Error(errorMessage)
         throw error
       }
+=======
+    const addNewReview = (formPayload) => {
+      fetch(`/api/v1/parks/${parkId}/reviews`, {
+        credentials: 'same-origin',
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formPayload)
+      })
+      .then(response => {
+        if (response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage)
+          throw error
+        }
+      })
+      .then(response => response.json())
+      .then(response => {
+        if (response.review) {
+          setReviews([...reviews, response.review])
+        } else {
+          setErrors(response.errors)
+        }
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+    }
+
+    useEffect(() => {
+      fetch(`/api/v1/parks/${parkId}/reviews`)
+      .then(response => {
+        if (response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage)
+          throw error
+        }
+      })
+      .then(response => response.json())
+      .then(reviewData => {
+        setReviews(reviewData.reviews)
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+    }, [])
+
+    const reviewTiles = reviews.map((review) => {
+      return(
+        <ReviewTile
+          key={review.id}
+          rating={review.rating}
+          body={review.body}
+          userId={review.user_id}
+          parkId={review.park_id}
+        />
+      )
+>>>>>>> 718630040b245de57bb29d830b637f4ef5773078
     })
     .then(response => response.json())
     .then(response => {
@@ -180,10 +241,7 @@ const ParksShowContainer = props => {
         key={parkInfo.id}
         id={parkInfo.id}
         name={parkInfo.name}
-        city= {parkInfo.city}
         state={parkInfo.state}
-        zip={parkInfo.zip}
-        rating={parkInfo.rating}
         description={parkInfo.description}
         photo={parkInfo.photo}
       />
