@@ -6,7 +6,7 @@ import ParkShowContainer from "./ParkShowContainer"
 const ParkTile = props => {
 
   return (
-    <div className="row" align="center">
+    <div className="row">
       <div className="columns small-10">
         <div>
           <div className="image-wrapper overlay-fade-in">

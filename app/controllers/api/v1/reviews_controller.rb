@@ -35,11 +35,6 @@ class Api::V1::ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    park = Park.find(params["park_id"])
-    review = Review.find(params["id"])
-  end
-
   def update
     park = Park.find(params["park_id"])
     review = Review.find(params["id"])

@@ -26,7 +26,7 @@ const EditReviewForm = (props) => {
   }
 
   return(
-    <div className={className} align="center">
+    <div className={className}>
       <form onSubmit={handleEditSubmit}>
         Edit your review:
         <label>
