@@ -3,18 +3,14 @@ require "rails_helper"
 RSpec.describe Api::V1::ReviewsController, type: :controller do
     let!(:test_park) { Park.create(
       name: "Yellowboulder",
-      city: "Boulder",
       state: "Boulderado",
-      zip: "110110",
       rating: 1,
       description: "A fake one",
       photo: "http://dasjkdhas.com",
     ) }
     let!(:second_test_park) { Park.create(
       name: "Yellowpebble",
-      city: "Pueblo",
       state: "Pebblefornia",
-      zip: "999999",
       rating: 2,
       description: "Another fake one",
       photo: "http://hellyeah.com"

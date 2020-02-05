@@ -16,7 +16,6 @@ describe("ParkTile", () => {
         <ParkTile
           photo="http://fakeurl.com/park"
           name="Fake Tinker Falls"
-          city="Fake Tully"
           state="Fake New York"
           rating="5"
         />
@@ -28,8 +27,8 @@ describe("ParkTile", () => {
     expect(wrapper.find("#name").text()).toBe("Fake Tinker Falls")
   })
 
-  it("should render an h3 element containing the park city, state, and rating received via props", () => {
-    expect(wrapper.find("#location").text()).toBe("Fake Tully, Fake New York")
+  it("should render an h3 element containing the park state received via props", () => {
+    expect(wrapper.find("#location").text()).toBe("Fake New York")
   })
 
   it("should render an h3 element containing the park rating received via props", () => {

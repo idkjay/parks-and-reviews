@@ -29,19 +29,17 @@ const ParksIndexContainer = props => {
           key={park.id}
           id={park.id}
           name={park.name}
-          city={park.city}
           state={park.state}
-          zip={park.zip}
           rating={park.rating}
           photo={park.photo}
-          />
+        />
       </div>
     )
   })
 
   return (
     <div>
-      <h3 className = "index-title">Explore Our National Parks</h3>
+      <h3 className="index-title">Explore Our National Parks</h3>
       {parkTiles}
     </div>
   )

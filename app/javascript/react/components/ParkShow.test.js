@@ -15,9 +15,7 @@ describe("ParkShow", () => {
         <ParkShow
           photo="http://fakeurl.com/park"
           name="Fake Tinker Falls"
-          city="Fake Tully"
           state="Fake New York"
-          zip="fake 131593"
           description="This is fake"
           rating="5"
         />
@@ -29,8 +27,8 @@ describe("ParkShow", () => {
     expect(wrapper.find("#name").text()).toBe("Fake Tinker Falls")
   })
 
-  it("should render an h3 element containing the park city, state, zip, and rating received via props", () => {
-    expect(wrapper.find("#location").text()).toBe("Fake Tully, Fake New York fake 131593")
+  it("should render an h3 element containing the park state received via props", () => {
+    expect(wrapper.find("#location").text()).toBe("Fake New York")
   })
 
   it("should render an h3 element containing the park rating received via props", () => {
