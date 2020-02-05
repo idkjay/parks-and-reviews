@@ -139,17 +139,6 @@ const ParksShowContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
 
-  const reviewTiles = reviews.map((review) => {
-    return(
-      <ReviewTile
-        key={review.id}
-        rating={review.rating}
-        body={review.body}
-        userId={review.user_id}
-        parkId={review.park_id}
-      />
-    )
-
   const handleInputChange = (event) => {
     setNewReview({
       ...newReview,
@@ -199,7 +188,7 @@ const ParksShowContainer = props => {
         currentUsername={review.current_username}
         deleteReview={deleteReview}
         updateReview={updateReview}
-        />
+      />
     )
   })
 
@@ -223,6 +212,6 @@ const ParksShowContainer = props => {
       />
     </div>
   )
-}
+ }
 
 export default ParksShowContainer;
