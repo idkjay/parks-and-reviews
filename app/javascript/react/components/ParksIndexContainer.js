@@ -17,7 +17,6 @@ const ParksIndexContainer = props => {
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       setParks(body.parks)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
