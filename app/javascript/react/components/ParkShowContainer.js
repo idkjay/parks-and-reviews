@@ -121,24 +121,6 @@ const ParksShowContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-  useEffect(() => {
-    fetch(`/api/v1/parks/${parkId}/reviews`)
-    .then(response => {
-      if (response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage)
-        throw error
-      }
-    })
-    .then(response => response.json())
-    .then(reviewData => {
-      setReviews(reviewData.reviews)
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }, [])
-
   const handleInputChange = (event) => {
     setNewReview({
       ...newReview,
