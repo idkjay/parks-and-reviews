@@ -5,8 +5,8 @@ const EditReviewForm = (props) => {
   let className = "hidden"
   const [ editedReview, setEditedReview ] = useState({
     id: props.id,
-    rating: "",
-    body: ""
+    rating: props.rating,
+    body: props.body
   })
 
   const handleEditSubmit = (event) => {
@@ -31,12 +31,21 @@ const EditReviewForm = (props) => {
         Edit your review:
         <label>
           Rating:
-          <input onChange={handleEditInputChange} type="text" id="rating" value={editedReview.rating} placeholder={props.rating} />
+          <input
+            onChange={handleEditInputChange}
+            type="text"
+            id="rating"
+            value={editedReview.rating}
+          />
         </label>
 
         <label>
           Review:
-          <textarea onChange={handleEditInputChange} id="body" value={editedReview.body} placeholder={props.body}/>
+          <textarea
+            onChange={handleEditInputChange}
+            id="body"
+            value={editedReview.body}
+          />
         </label>
 
         <input id = "edit-submit" type="submit" value="Update"/>

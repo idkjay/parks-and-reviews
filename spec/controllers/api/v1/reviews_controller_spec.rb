@@ -17,7 +17,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     description: "A fake one",
     photo: "http://dasjkdhas.com",
   ) }
-  
+
   let!(:second_test_park) { Park.create(
     name: "Yellowpebble",
     state: "Pebblefornia",
@@ -29,7 +29,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     user_id: user_2.id,
     park_id: test_park.id,
     body: "Another review for first park",
-    rating: 4,
+    rating: 4
     )}
 
   describe "GET#index" do
@@ -61,6 +61,49 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
       expect(returned_json["reviews"].length).to eq 0
+    end
+  end
+
+  describe "POST#create" do
+    context "when a user is signed in and provides proper review params" do
+      let!(:new_review) {{
+          rating: 1,
+          body: "Fake rating",
+          park_id: test_park.id
+        }}
+
+      it "adds a new review to the database" do
+        sign_in user_1
+
+        prev_count = Review.count
+        post :create, params: new_review, format: :json
+        expect(Review.count).to eq(prev_count + 1)
+      end
+
+      it "returns the new review as JSON" do
+        sign_in user_1
+
+        post :create, params: new_review, format: :json
+        response_body = JSON.parse(response.body)
+
+        expect(response_body["review"].length).to eq 9
+        expect(response_body["review"]["rating"]).to eq 1
+        expect(response_body["review"]["body"]).to eq "Fake rating"
+      end
+    end
+
+    context "When a user submits review without required params" do
+      let!(:bad_post_json) {{
+        rating: "",
+        body: "",
+        park_id: test_park.id
+      }}
+
+      it "adds does not add the new review to the database" do
+        prev_count = Review.count
+        post :create, params: bad_post_json, format: :json
+        expect(Review.count).to eq(prev_count)
+      end
     end
   end
 
