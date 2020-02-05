@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-
 import ParkTile from "./ParkTile"
 
 const ParksIndexContainer = props => {
@@ -25,22 +24,21 @@ const ParksIndexContainer = props => {
 
   const parkTiles = parks.map(park => {
     return(
-      <ParkTile
-        key={park.id}
-        id={park.id}
-        name={park.name}
-        city={park.city}
-        state={park.state}
-        zip={park.zip}
-        rating={park.rating}
-        photo={park.photo}
-      />
+      <div>
+        <ParkTile
+          key={park.id}
+          id={park.id}
+          name={park.name}
+          state={park.state}
+          photo={park.photo}
+        />
+      </div>
     )
   })
 
   return (
     <div>
-      <h3 className = "index-title">Explore Our National Parks</h3>
+      <h3 className="index-title">Explore Our National Parks</h3>
       {parkTiles}
     </div>
   )

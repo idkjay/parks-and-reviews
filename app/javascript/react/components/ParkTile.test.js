@@ -1,10 +1,11 @@
 import React from "react"
 import Enzyme, { mount } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
+import { BrowserRouter } from "react-router-dom"
+
 Enzyme.configure({ adapter: new Adapter() })
 
 import ParkTile from "./ParkTile"
-import { BrowserRouter } from "react-router-dom"
 
 describe("ParkTile", () => {
   let wrapper
@@ -15,9 +16,7 @@ describe("ParkTile", () => {
         <ParkTile
           photo="http://fakeurl.com/park"
           name="Fake Tinker Falls"
-          city="Fake Tully"
           state="Fake New York"
-          rating="5"
         />
       </BrowserRouter>
     )
@@ -27,12 +26,8 @@ describe("ParkTile", () => {
     expect(wrapper.find("#name").text()).toBe("Fake Tinker Falls")
   })
 
-  it("should render an h3 element containing the park city, state, and rating received via props", () => {
-    expect(wrapper.find("#location").text()).toBe("Fake Tully, Fake New York")
-  })
-
-  it("should render an h3 element containing the park rating received via props", () => {
-    expect(wrapper.find("#rating").text()).toBe("5 stars")
+  it("should render an h3 element containing the park state received via props", () => {
+    expect(wrapper.find("#location").text()).toBe("Fake New York")
   })
 
   it("should render an img tag with the specific props", () => {
