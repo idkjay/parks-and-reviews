@@ -138,7 +138,6 @@ const ParksShowContainer = props => {
         id={parkInfo.id}
         name={parkInfo.name}
         state={parkInfo.state}
-        rating={parkInfo.rating}
         description={parkInfo.description}
         photo={parkInfo.photo}
         addNewReview={addNewReview}

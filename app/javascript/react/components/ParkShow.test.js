@@ -17,7 +17,6 @@ describe("ParkShow", () => {
           name="Fake Tinker Falls"
           state="Fake New York"
           description="This is fake"
-          rating="5"
         />
       </BrowserRouter>
     )
@@ -29,10 +28,6 @@ describe("ParkShow", () => {
 
   it("should render an h3 element containing the park state received via props", () => {
     expect(wrapper.find("#location").text()).toBe("Fake New York")
-  })
-
-  it("should render an h3 element containing the park rating received via props", () => {
-    expect(wrapper.find("#park-rating").text()).toBe("Rating: 5")
   })
 
   it("should render an p element containing the park description received via props", () => {

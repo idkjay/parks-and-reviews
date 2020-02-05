@@ -30,7 +30,6 @@ const ParksIndexContainer = props => {
           id={park.id}
           name={park.name}
           state={park.state}
-          rating={park.rating}
           photo={park.photo}
         />
       </div>

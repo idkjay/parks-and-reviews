@@ -4,14 +4,12 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     let!(:test_park) { Park.create(
       name: "Yellowboulder",
       state: "Boulderado",
-      rating: 1,
       description: "A fake one",
       photo: "http://dasjkdhas.com",
     ) }
     let!(:second_test_park) { Park.create(
       name: "Yellowpebble",
       state: "Pebblefornia",
-      rating: 2,
       description: "Another fake one",
       photo: "http://hellyeah.com"
     ) }
