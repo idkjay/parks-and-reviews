@@ -30,7 +30,6 @@ const ParksShowContainer = props => {
     })
     .then(response => response.json())
     .then(response => {
-      debugger
       setParkInfo(response.park)
       setReviews(response.park.reviews)
     })

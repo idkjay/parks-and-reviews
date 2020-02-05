@@ -15,7 +15,7 @@ const ParkTile = props => {
                 <div className="image-overlay-content">
                   <h2 id="name">{props.name}</h2>
                   <p id="location">{props.city}, {props.state}</p>
-                  <p id="rating">{props.rating} stars</p>
+                  // <p id="rating">{average} stars</p>
                 </div>
             </Link>
           </div>
