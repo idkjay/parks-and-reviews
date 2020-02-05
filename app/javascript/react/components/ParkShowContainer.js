@@ -91,7 +91,7 @@ const ParksShowContainer = props => {
           body={review.body}
           userId={review.user_id}
           parkId={review.park_id}
-          />
+        />
       )
     })
 
@@ -137,10 +137,7 @@ const ParksShowContainer = props => {
         key={parkInfo.id}
         id={parkInfo.id}
         name={parkInfo.name}
-        city= {parkInfo.city}
         state={parkInfo.state}
-        zip={parkInfo.zip}
-        rating={parkInfo.rating}
         description={parkInfo.description}
         photo={parkInfo.photo}
         addNewReview={addNewReview}

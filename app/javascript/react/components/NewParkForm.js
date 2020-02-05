@@ -8,11 +8,9 @@ const NewParkForm = props => {
   const [errors, setErrors] = useState({})
   const [newPark, setNewPark] = useState({
     name: "",
-    city: "",
     state: "",
-    zip: "",
-    rating: "",
-    photo: ""
+    photo: "",
+    description: ""
   })
 
   const states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
@@ -67,7 +65,7 @@ const NewParkForm = props => {
 
   const validForSubmission = () => {
     let submitErrors = {}
-    const requiredFields = ["name", "city", "state", "zip", "rating", "photo"]
+    const requiredFields = ["name", "state", "description", "photo"]
     requiredFields.forEach(field => {
       if (newPark[field].trim() === "") {
         submitErrors = {
@@ -100,34 +98,12 @@ const NewParkForm = props => {
           />
       </label>
 
-        <label htmlFor="city">
-          Park City:
-          <input
-            type="text"
-            name="city"
-            id="city"
-            value={newPark.city}
-            onChange={handleChange}
-          />
-        </label>
-
         <label htmlFor="state">
           Park State:
           <select value={newPark.state} type="state" name="state" id="state" onChange={handleChange}>
             <option></option>
             {stateOptions}
           </select>
-        </label>
-
-        <label htmlFor="zip">
-          Park Zip:
-          <input
-            type="text"
-            name="zip"
-            id="zip"
-            value={newPark.zip}
-            onChange={handleChange}
-          />
         </label>
 
         <label htmlFor="photo">
@@ -141,15 +117,15 @@ const NewParkForm = props => {
           />
         </label>
 
-        <label htmlFor="rating">
-          Park Rating:
-          <input
-            type="text"
-            name="rating"
-            id="rating"
-            value={newPark.rating}
-            onChange={handleChange}
-          />
+        <label htmlFor="description">
+          Park Description:
+            <input
+              type="text"
+              name="description"
+              id="description"
+              value={newPark.description}
+              onChange={handleChange}
+            />
         </label>
 
         <div className="button-group">
