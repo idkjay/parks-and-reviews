@@ -60,4 +60,83 @@ RSpec.describe Api::V1::ParksController, type: :controller do
       expect(returned_json["park"]["photo"]).to eq "http://dasjkdhas.com"
     end
   end
+
+  describe "POST#create" do
+    post_json = {
+      name: "Mellowpebble",
+      city: "Pablo",
+      state: "Mellowfornia",
+      zip: "1111",
+      rating: 3,
+      description: "Another fake one",
+      photo: "http://hellno.com"
+    }
+
+    bad_post_json = {
+      name: "",
+      city: "",
+      state: "",
+      zip: "",
+      rating: "",
+      photo: ""
+    }
+
+    let!(:admin_user) { FactoryBot.create(:admin_user) }
+
+    context "when an admin is signed in and provides proper park params" do
+      it "adds a new park to the database" do
+        sign_in admin_user
+
+        prev_count = Park.count
+        post :create, params: post_json, format: :json
+        expect(Park.count).to eq(prev_count + 1)
+      end
+
+      it "returns the new park as JSON" do
+        sign_in admin_user
+
+        post :create, params: post_json, format: :json
+
+        response_body = JSON.parse(response.body)
+        expect(response_body["park"].length).to eq 10
+        expect(response_body["park"]["name"]).to eq "Mellowpebble"
+        expect(response_body["park"]["city"]).to eq "Pablo"
+        expect(response_body["park"]["state"]).to eq "Mellowfornia"
+        expect(response_body["park"]["zip"]).to eq "1111"
+        expect(response_body["park"]["rating"]).to eq 3
+        expect(response_body["park"]["photo"]).to eq "http://hellno.com"
+        expect(response_body["park"]["description"]).to eq "Another fake one"
+      end
+    end
+
+
+    context 'when a malformed request is made' do
+      it 'does not persist data to database' do
+        sign_in admin_user
+
+        prev_count = Park.count
+
+        post :create, params: bad_post_json, format: :json
+
+        expect(Park.count).to eq prev_count
+      end
+
+      it 'returns validation errors' do
+        sign_in admin_user
+
+        post :create, params: bad_post_json, format: :json
+
+        response_body = JSON.parse(response.body)
+
+        expect(response_body["error"][0]).to eq "Name can't be blank"
+        expect(response_body["error"][1]).to eq "City can't be blank"
+        expect(response_body["error"][2]).to eq "State can't be blank"
+        expect(response_body["error"][3]).to eq "Zip can't be blank"
+        expect(response_body["error"][4]).to eq "Rating can't be blank"
+        expect(response_body["error"][5]).to eq "Rating is not a number"
+        expect(response_body["error"][6]).to eq "Description can't be blank"
+        expect(response_body["error"][7]).to eq "Photo can't be blank"
+      end
+    end
+  end
 end
