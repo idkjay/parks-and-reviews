@@ -121,6 +121,35 @@ const ParksShowContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  useEffect(() => {
+    fetch(`/api/v1/parks/${parkId}/reviews`)
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then(response => response.json())
+    .then(reviewData => {
+      setReviews(reviewData.reviews)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }, [])
+
+  const reviewTiles = reviews.map((review) => {
+    return(
+      <ReviewTile
+        key={review.id}
+        rating={review.rating}
+        body={review.body}
+        userId={review.user_id}
+        parkId={review.park_id}
+      />
+    )
+
   const handleInputChange = (event) => {
     setNewReview({
       ...newReview,
@@ -180,10 +209,7 @@ const ParksShowContainer = props => {
         key={parkInfo.id}
         id={parkInfo.id}
         name={parkInfo.name}
-        city= {parkInfo.city}
         state={parkInfo.state}
-        zip={parkInfo.zip}
-        rating={parkInfo.rating}
         description={parkInfo.description}
         photo={parkInfo.photo}
       />
