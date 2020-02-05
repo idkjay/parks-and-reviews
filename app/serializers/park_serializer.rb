@@ -1,3 +1,3 @@
 class ParkSerializer < ActiveModel::Serializer
-  attributes :id, :name, :city, :state, :rating, :photo
+  attributes :id, :name, :state, :photo
 end
