@@ -12,7 +12,6 @@ class Api::V1::ReviewsController < ApplicationController
       review.user = current_user
       park = Park.find(params["park_id"])
       review.park = park
-      binding.pry
 
       if review.save
         render json: review
