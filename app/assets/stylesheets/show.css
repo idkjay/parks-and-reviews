@@ -1,3 +1,73 @@
 .hidden {
   display: none;
 }
+
+.padding {
+  padding-top: 30px;;
+}
+
+#name {
+  font-family: 'Special Elite', cursive;
+}
+
+.review-padding {
+  padding-top: 40px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-radius: 10px;
+}
+
+.rating-field {
+  width: 50px;
+}
+
+#location, #park-rating, #review-rating {
+  font-family: 'Bebas Neue', cursive;
+}
+
+.review-margin {
+  margin-left: 60%;
+  margin-top: 70px;
+  width: 400px;
+  height: 300px;
+}
+
+.review-side-space {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.review-info-box {
+  border: solid;
+  border-color: #004D31;
+  border-radius: 10px;
+  padding-top: 6%;
+  background-color: #F5FADC;
+}
+
+.image {
+  display:inline-flex;
+  max-width: 50%;
+  float:left;
+  text-align: center;
+  border-radius: 10px;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+
+
+.information {
+  text-align: left;
+  width: 500px;
+  display:inline-flex;
+}
+
+form {
+  padding-right: 300px;
+  padding-left: 300px;
+}

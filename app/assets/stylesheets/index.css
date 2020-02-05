@@ -16,6 +16,7 @@
 
 .image-wrapper {
   width: 50%;
+  display: inline-block;
   overflow: hidden;
   position: relative;
   text-align: center;

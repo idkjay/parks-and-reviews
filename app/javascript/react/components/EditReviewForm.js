@@ -27,7 +27,7 @@ const EditReviewForm = (props) => {
 
   return(
     <div className={className} align="center">
-      <form onSubmit={handleEditSubmit}>
+      <form className="padding" onSubmit={handleEditSubmit}>
         Edit your review:
         <label>
           Rating:
@@ -39,7 +39,7 @@ const EditReviewForm = (props) => {
           <textarea onChange={handleEditInputChange} id="body" value={editedReview.body} placeholder={props.body}/>
         </label>
 
-        <input id = "edit-submit" type="submit" value="Update"/>
+        <input id = "edit-submit" type="submit" value="Update Review"/>
       </form>
     </div>
   )

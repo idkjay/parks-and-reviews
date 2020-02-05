@@ -1,24 +1,32 @@
-import React from "react"
+import React, { useState } from "react"
 import ErrorList from "./ErrorList"
 import _ from "lodash"
 
+const ratings = [1, 2, 3, 4, 5]
+
 const ReviewForm = ({ handleSubmit, handleInputChange, clearForm, newReview, errors }) => {
+
+  const ratingOptions = ratings.map((rating) => <option key={rating} value={rating}>{rating}</option>)
+
   return(
-    <form id="review-form" onSubmit={handleSubmit} >
-      <ErrorList errors={errors}/>
-      <label>
-        Rating:
-        <input onChange={handleInputChange} type="text" id="rating" value={newReview.rating}/>
-      </label>
+    <div className="">
+      <h3>Add New Review</h3>
+      <form id="review-form" onSubmit={handleSubmit} >
+        <ErrorList errors={errors}/>
+        <label>
+          Rating:
+          <select className="rating-field" onChange={handleInputChange} id="rating" value={newReview.rating}>{ratingOptions}</select>
+        </label>
 
-      <label>
-        Review:
-        <textarea onChange={handleInputChange} id="body" value={newReview.body}/>
-      </label>
+        <label>
+          Review:
+          <textarea onChange={handleInputChange} id="body" value={newReview.body}/>
+        </label>
 
-      <input id="submit" type="submit" />
-      <input type="button" onClick={clearForm} value="Clear" />
-    </form>
+        <input id="submit" type="submit" />
+        <input type="button" onClick={clearForm} value="Clear" />
+      </form>
+    </div>
   )
 }
 

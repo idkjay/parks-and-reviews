@@ -14,21 +14,23 @@ const ReviewTile = props => {
   }
 
   return (
-    <div className="row" align="center">
-      <h4 id="review-rating">Rating: {rating}</h4>
-      <p id="review-body">{body}</p>
-      <p id="username">Posted by: {username}</p>
-      <input className={className} type="button" onClick={handleDelete} value="Delete Review" />
+    <div className="row center">
+      <div className="review-padding callout">
+        <h4 id="review-rating">Rating: {rating}</h4>
+        <p className="review-side-space" id="review-body">{body}</p>
+        <p id="username">Posted by: {username}</p>
+        <input className={className} type="button" onClick={handleDelete} value="Delete Review" />
 
-      <EditReviewForm
-      body={body}
-      rating={rating}
-      updateReview={updateReview}
-      id={id}
-      className={className}
-      username={username}
-      currentUsername={currentUsername}
-      />
+        <EditReviewForm
+        body={body}
+        rating={rating}
+        updateReview={updateReview}
+        id={id}
+        className={className}
+        username={username}
+        currentUsername={currentUsername}
+        />
+      </div>
     </div>
   )
 }

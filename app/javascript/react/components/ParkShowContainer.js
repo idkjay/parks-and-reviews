@@ -24,7 +24,7 @@ const ParksShowContainer = props => {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      },
+      }
     })
     .then(response => {
       if (response.ok) {
@@ -187,6 +187,7 @@ const ParksShowContainer = props => {
         description={parkInfo.description}
         photo={parkInfo.photo}
       />
+      <h1 className="padding center">Reviews</h1>
       {reviewTiles}
       <ReviewForm
         handleInputChange={handleInputChange}
