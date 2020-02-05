@@ -17,6 +17,7 @@ const ParksIndexContainer = props => {
     })
     .then(response => response.json())
     .then(body => {
+      debugger
       setParks(body.parks)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
@@ -27,10 +28,7 @@ const ParksIndexContainer = props => {
       <div>
         <ParkTile
           key={park.id}
-          id={park.id}
-          name={park.name}
-          state={park.state}
-          photo={park.photo}
+          parkData={park}
         />
       </div>
     )

@@ -14,6 +14,7 @@ const ParksShowContainer = props => {
     body: ""
   })
   const [ errors, setErrors ] = useState("")
+  const [ getAverage, setAverage ] = useState("")
 
   let parkId = props.match.params.id
 
@@ -30,6 +31,7 @@ const ParksShowContainer = props => {
     })
     .then(response => response.json())
     .then(response => {
+      setAverage(response.park.average)
       setParkInfo(response.park)
       setReviews(response.park.reviews)
     })
@@ -59,6 +61,7 @@ const ParksShowContainer = props => {
       .then(response => {
         if (response.review) {
           setReviews([...reviews, response.review])
+          setAverage(response.review.park.average)
         } else {
           setErrors(response.errors)
         }
@@ -119,16 +122,9 @@ const ParksShowContainer = props => {
   return(
     <div>
       <ParkShow
-        key={parkInfo.id}
-        id={parkInfo.id}
-        name={parkInfo.name}
-        city= {parkInfo.city}
-        state={parkInfo.state}
-        zip={parkInfo.zip}
-        rating={parkInfo.rating}
-        description={parkInfo.description}
-        photo={parkInfo.photo}
+        parkInfo={parkInfo}
         addNewReview={addNewReview}
+        stateAverage={getAverage}
       />
       <ReviewForm
         handleInputChange={handleInputChange}

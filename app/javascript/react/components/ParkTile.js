@@ -3,18 +3,20 @@ import { Link } from "react-router-dom"
 
 import ParkShowContainer from "./ParkShowContainer"
 
-const ParkTile = props => {
+const ParkTile = ({ parkData }) => {
+  let { id, name, state, photo, average } = parkData
 
   return (
     <div className="row" align="center">
       <div className="columns small-10">
         <div>
           <div className="image-wrapper overlay-fade-in">
-            <Link to={`/parks/${props.id}`}>
-              <img className="photo" src={props.photo}/>
+            <Link to={`/parks/${id}`}>
+              <img className="photo" src={photo}/>
                 <div className="image-overlay-content">
-                  <h2 id="name">{props.name}</h2>
-                  <h3 id="state">{props.state}</h3>
+                  <h2 id="name">{name}</h2>
+                  <p id="location">{state}</p>
+                  <p id="average">{average}</p>
                 </div>
             </Link>
           </div>
