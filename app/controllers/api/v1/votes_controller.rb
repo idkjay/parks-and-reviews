@@ -41,10 +41,4 @@ class Api::V1::VotesController < ApplicationController
     end
     render json: review.votes
   end
-
-  private
-  #
-  def vote_params
-    params.require(:vote).permit(:park_id, :user_id, :review_id)
-  end
 end
