@@ -11,10 +11,11 @@ const ParkShow = ({ parkInfo, stateAverage }) => {
           <div className="center">
             <img className="image cell small-10 large-7" src={photo} id="photo"/>
               <div className="review-margin review-info-box">
-                <h4 className="cell small-10 large-5" id="location">{state}</h4>
-                <h4 className="cell small-10 large-5" id="average">{stateAverage}</h4>
-                <br />
+                <br/>
+                <h4 className="cell small-10 large-5" id="location">Located in {state}</h4>
                 <p className="cell small-10 large-5" id="description">{description}</p>
+                <br/>
+                <h4 className="cell small-10 large-5" id="average">{stateAverage}</h4>
               </div>
           </div>
         </div>

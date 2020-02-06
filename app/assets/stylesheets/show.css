@@ -37,6 +37,17 @@
   font-family: 'Bebas Neue', cursive;
 }
 
+#average {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 40px;
+}
+
+#up, #down {
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
 .review-margin {
   margin-left: 60%;
   margin-top: 20px;
@@ -109,4 +120,16 @@ label {
 .form-input {
   display: block;
   margin: auto;
+}
+
+#username, #review-rating {
+  max-width: 150px;
+}
+
+.votetile {
+  max-width: 100px;
+}
+
+.inline {
+  display: inline-flex;
 }
