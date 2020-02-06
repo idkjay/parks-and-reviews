@@ -27,10 +27,7 @@ const ParksIndexContainer = props => {
       <div>
         <ParkTile
           key={park.id}
-          id={park.id}
-          name={park.name}
-          state={park.state}
-          photo={park.photo}
+          parkData={park}
         />
       </div>
     )
@@ -44,4 +41,4 @@ const ParksIndexContainer = props => {
   )
 }
 
-export default ParksIndexContainer
+export default ParksIndexContainer;

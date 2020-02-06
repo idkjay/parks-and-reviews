@@ -1,12 +1,24 @@
 import React, { useState } from "react"
 
-const ParkShow = props => {
+const ParkShow = ({ parkInfo, stateAverage }) => {
+  let { id, name, state, zip, rating, description, photo, average } = parkInfo
+
   return(
     <div>
-      <img src={props.photo} id="photo"/>
-      <h1 id="name">{props.name}</h1>
-      <h3 id="location">{props.state}</h3>
-      <p id="description">{props.description}</p>
+      <h1 className="center" id="name">{name}</h1>
+      <div className="grid-container">
+        <div className="grid-x">
+          <div className="center">
+            <img className="image cell small-10 large-7" src={photo} id="photo"/>
+              <div className="review-margin review-info-box">
+                <h4 className="cell small-10 large-5" id="location">{state}</h4>
+                <h4 className="cell small-10 large-5" id="average">{stateAverage}</h4>
+                <br />
+                <p className="cell small-10 large-5" id="description">{description}</p>
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

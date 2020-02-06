@@ -9,14 +9,19 @@ import ParkTile from "./ParkTile"
 
 describe("ParkTile", () => {
   let wrapper
+  let parkData
 
   beforeEach(() => {
+    parkData = {
+      photo: "http://fakeurl.com/park",
+      name: "Fake Tinker Falls",
+      state: "Fake New York",
+      average: "2"
+    }
     wrapper = mount(
       <BrowserRouter>
         <ParkTile
-          photo="http://fakeurl.com/park"
-          name="Fake Tinker Falls"
-          state="Fake New York"
+          parkData={parkData}
         />
       </BrowserRouter>
     )
@@ -32,5 +37,9 @@ describe("ParkTile", () => {
 
   it("should render an img tag with the specific props", () => {
     expect(wrapper.find("img").props()["src"]).toEqual("http://fakeurl.com/park")
+  })
+
+  it("should render an p element containing the park average rating", () => {
+    expect(wrapper.find("#average").text()).toBe("2")
   })
 })
