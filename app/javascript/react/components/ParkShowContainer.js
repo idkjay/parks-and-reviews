@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { Redirect } from 'react-router-dom'
-import _ from 'lodash'
+import { Redirect } from "react-router-dom"
+import _ from "lodash"
 
 import ParkShow from "./ParkShow"
 import ReviewTile from "./ReviewTile"
@@ -9,11 +9,12 @@ import ReviewForm from "./ReviewForm"
 const ParksShowContainer = props => {
   const [ parkInfo, setParkInfo ] = useState({})
   const [ reviews, setReviews ] = useState([])
-  const [ errors, setErrors ] = useState("")
   const [ newReview, setNewReview ] = useState({
     rating: "",
     body: ""
   })
+  const [ errors, setErrors ] = useState("")
+  const [ getAverage, setAverage ] = useState("")
 
   let parkId = props.match.params.id
 
@@ -85,41 +86,43 @@ const ParksShowContainer = props => {
     })
     .then(response => response.json())
     .then(response => {
+      setAverage(response.park.average)
       setParkInfo(response.park)
       setReviews(response.park.reviews)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
 
-  const addNewReview = (formPayload) => {
-    fetch(`/api/v1/parks/${parkId}/reviews`, {
-      credentials: 'same-origin',
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formPayload)
-    })
-    .then(response => {
-      if (response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage)
-        throw error
-      }
-    })
-    .then(response => response.json())
-    .then(response => {
-      if (response.review) {
-        setReviews([...reviews, response.review])
-      } else {
-        setErrors(response.errors)
-      }
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }
+    const addNewReview = (formPayload) => {
+      fetch(`/api/v1/parks/${parkId}/reviews`, {
+        credentials: 'same-origin',
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formPayload)
+      })
+      .then(response => {
+        if (response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage)
+          throw error
+        }
+      })
+      .then(response => response.json())
+      .then(response => {
+        if (response.review) {
+          setReviews([...reviews, response.review])
+          setAverage(response.review.park.average)
+        } else {
+          setErrors(response.errors)
+        }
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+    }
 
   const handleInputChange = (event) => {
     setNewReview({
@@ -170,6 +173,7 @@ const ParksShowContainer = props => {
         currentUsername={review.current_username}
         deleteReview={deleteReview}
         updateReview={updateReview}
+        votes={review.votes}
       />
     )
   })
@@ -177,12 +181,9 @@ const ParksShowContainer = props => {
   return(
     <div>
       <ParkShow
-        key={parkInfo.id}
-        id={parkInfo.id}
-        name={parkInfo.name}
-        state={parkInfo.state}
-        description={parkInfo.description}
-        photo={parkInfo.photo}
+        parkInfo={parkInfo}
+        addNewReview={addNewReview}
+        stateAverage={getAverage}
       />
       <ReviewForm
         handleInputChange={handleInputChange}
@@ -190,7 +191,7 @@ const ParksShowContainer = props => {
         newReview={newReview}
         errors={errors}
         clearForm={clearForm}
-        />
+       />
       <h1 className="padding center">Reviews</h1>
       <div className="grid-x flex">
         {reviewTiles}

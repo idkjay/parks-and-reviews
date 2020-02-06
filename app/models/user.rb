@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :profile_photo, presence: true
 
   has_many :reviews
+  has_many :votes
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 

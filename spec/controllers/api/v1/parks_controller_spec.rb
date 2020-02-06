@@ -40,7 +40,7 @@ RSpec.describe Api::V1::ParksController, type: :controller do
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
-      expect(returned_json["park"].length).to eq 6
+      expect(returned_json["park"].length).to eq 7
 
       expect(returned_json["park"]["name"]).to eq "Yellowboulder"
       expect(returned_json["park"]["state"]).to eq "Boulderado"

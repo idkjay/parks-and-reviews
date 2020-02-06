@@ -8,15 +8,21 @@ import { BrowserRouter } from "react-router-dom"
 
 describe("ParkShow", () => {
   let wrapper
+  let parkInfo
+  let stateAverage = "3"
 
   beforeEach(() => {
+    parkInfo = {
+      photo: "http://fakeurl.com/park",
+      name: "Fake Tinker Falls",
+      state: "Fake New York",
+      description: "This is fake"
+    }
     wrapper = mount(
       <BrowserRouter>
         <ParkShow
-          photo="http://fakeurl.com/park"
-          name="Fake Tinker Falls"
-          state="Fake New York"
-          description="This is fake"
+          parkInfo={parkInfo}
+          stateAverage={stateAverage}
         />
       </BrowserRouter>
     )
@@ -36,5 +42,9 @@ describe("ParkShow", () => {
 
   it("should render an img tag with the specific props", () => {
     expect(wrapper.find("img").props()["src"]).toEqual("http://fakeurl.com/park")
+  })
+
+  it("should render an h3 element containing the park average", () => {
+    expect(wrapper.find("#average").text()).toBe("3")
   })
 })
