@@ -41,4 +41,4 @@ const ParksIndexContainer = props => {
   )
 }
 
-export default ParksIndexContainer
+export default ParksIndexContainer;

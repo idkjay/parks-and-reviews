@@ -3,9 +3,7 @@ import EditReviewForm from "./EditReviewForm"
 import VoteTile from "./VoteTile"
 
 const ReviewTile = props => {
-  const [ votes, setVotes ] = useState({
-    count: 0
-  })
+  const [ votes, setVotes ] = useState([])
   const { id, rating, body, userId, parkId, username, currentUsername, deleteReview, updateReview } = props
   let className = "hidden"
 
@@ -35,7 +33,6 @@ const ReviewTile = props => {
   }, [])
 
   const handleVoteClick = (voteInfo) => {
-    debugger
     fetch(`/api/v1/parks/${parkId}/reviews/${id}/votes`, {
       credentials: "same-origin",
       method: "POST",
@@ -56,7 +53,6 @@ const ReviewTile = props => {
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       setVotes(body.votes)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))

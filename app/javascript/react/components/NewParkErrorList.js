@@ -23,4 +23,4 @@ const NewParkErrorList = props => {
   }
 }
 
-export default NewParkErrorList
+export default NewParkErrorList;

@@ -1,41 +1,26 @@
 import React from "react"
 
 const VoteTile = props => {
-  let upvote = 0
-  let downvote = 0
-  // if (props.votes.length > 0) {
-  //   props.votes.forEach(vote => {
-  //     upvote += vote.up
-  //     downvote += vote.down
-  //   })
-  // }
+  let upvoteCount = 0
+  let downvoteCount = 0
 
-  // const handleUpvoteClick = event => {
-  //   vote += 1
-  //   setVotes(vote)
-  // }
-  //
-  // const handleDownvoteClick = event => {
-  //   vote -= 1
-  //   setVotes(vote)
-  // }
-
-  // props.votes is empty array that needs to be change on click.
+  if (props.votes.length > 0) {
+    props.votes.forEach(vote => {
+      upvoteCount += vote.up
+      downvoteCount += vote.down
+    })
+  }
 
   const handleClick = event => {
     event.preventDefault()
-    if (event.currentTarget.id === "upvote") {
-      props.handleVoteClick(props.votes.count = 1)
-    } else if (event.currentTarget.id === "downvote") {
-      props.handleVoteClick(props.votes.count = -1)
-    }
+    props.handleVoteClick(event.currentTarget.id)
   }
 
   return(
     <div>
-      <i id="upvote" className="fa fa-tree up" onClick={handleClick}></i>
+      <i id="up" className="fa fa-tree up" onClick={handleClick}></i>{upvoteCount}
 
-      <i id="downvote" className="fa fa-tree down" onClick={handleClick}></i>
+      <i id="down" className="fa fa-tree down" onClick={handleClick}></i>{downvoteCount}
     </div>
   )
 }
