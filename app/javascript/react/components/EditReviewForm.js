@@ -45,7 +45,7 @@ const EditReviewForm = (props) => {
           <textarea onChange={handleEditInputChange} id="body" value={editedReview.body} placeholder={props.body}/>
         </label>
 
-        <input id = "edit-submit" type="submit" value="Update Review"/>
+        <input id="edit-submit" type="submit" value="Update Review"/>
       </form>
     </div>
   )
