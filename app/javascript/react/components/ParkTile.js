@@ -8,7 +8,7 @@ const ParkTile = props => {
   return (
     <div className="row">
       <div className="columns small-10">
-        <div>
+        <div className="center">
           <div className="image-wrapper overlay-fade-in">
             <Link to={`/parks/${props.id}`}>
               <img className="photo" src={props.photo}/>
