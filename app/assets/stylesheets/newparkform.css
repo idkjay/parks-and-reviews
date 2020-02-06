@@ -1,10 +1,11 @@
 .new-name-form {
   border-radius: 8px 8px;
 }
- .park-form-title {
-   text-align: center;
-   color: #005235;
- }
+
+.park-form-title {
+  text-align: center;
+  color: #005235;
+}
 
 .button {
   background-color: #005235;

@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import _ from "lodash"
 
+const ratings = ["", 1, 2, 3, 4, 5]
+
 const EditReviewForm = (props) => {
   let className = "hidden"
   const [ editedReview, setEditedReview ] = useState({
@@ -8,6 +10,8 @@ const EditReviewForm = (props) => {
     rating: props.rating,
     body: props.body
   })
+
+  const ratingOptions = ratings.map((rating) => <option key={rating} value={rating}>{rating}</option>)
 
   const handleEditSubmit = (event) => {
     event.preventDefault()
@@ -27,28 +31,21 @@ const EditReviewForm = (props) => {
 
   return(
     <div className={className}>
-      <form onSubmit={handleEditSubmit}>
-        Edit your review:
+      <form className="padding" onSubmit={handleEditSubmit}>
+        <div className="font-size">
+          Edit your review:
+        </div>
         <label>
           Rating:
-          <input
-            onChange={handleEditInputChange}
-            type="text"
-            id="rating"
-            value={editedReview.rating}
-          />
+          <select className="edit-rating" onChange={handleEditInputChange} id="rating" value={editedReview.rating} placeholder={props.rating}>{ratingOptions}</select>
         </label>
 
         <label>
           Review:
-          <textarea
-            onChange={handleEditInputChange}
-            id="body"
-            value={editedReview.body}
-          />
+          <textarea onChange={handleEditInputChange} id="body" value={editedReview.body} placeholder={props.body}/>
         </label>
 
-        <input id = "edit-submit" type="submit" value="Update"/>
+        <input id="edit-submit" type="submit" value="Update Review"/>
       </form>
     </div>
   )

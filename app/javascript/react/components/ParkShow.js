@@ -5,11 +5,20 @@ const ParkShow = ({ parkInfo, stateAverage }) => {
 
   return(
     <div>
-      <img src={photo} id="photo"/>
-      <h1 id="name">{name}</h1>
-      <h3 id="location">{state}</h3>
-      <h3 id="average">{stateAverage}</h3>
-      <p id="description">{description}</p>
+      <h1 className="center" id="name">{name}</h1>
+      <div className="grid-container">
+        <div className="grid-x">
+          <div className="center">
+            <img className="image cell small-10 large-7" src={photo} id="photo"/>
+              <div className="review-margin review-info-box">
+                <h4 className="cell small-10 large-5" id="location">{state}</h4>
+                <h4 className="cell small-10 large-5" id="park-rating">{stateAverage}</h4>
+                <br />
+                <p className="cell small-10 large-5" id="description">{description}</p>
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

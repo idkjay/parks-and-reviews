@@ -9,7 +9,7 @@ const ParkTile = ({ parkData }) => {
   return (
     <div className="row">
       <div className="columns small-10">
-        <div>
+        <div className="center">
           <div className="image-wrapper overlay-fade-in">
             <Link to={`/parks/${id}`}>
               <img className="photo" src={photo}/>

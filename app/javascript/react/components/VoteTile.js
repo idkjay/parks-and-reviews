@@ -19,7 +19,6 @@ const VoteTile = props => {
   return(
     <div>
       <i id="up" className="fa fa-tree up" onClick={handleClick}></i>{upvoteCount}
-
       <i id="down" className="fa fa-tree down" onClick={handleClick}></i>{downvoteCount}
     </div>
   )

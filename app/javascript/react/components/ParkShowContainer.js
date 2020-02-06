@@ -191,8 +191,11 @@ const ParksShowContainer = props => {
         newReview={newReview}
         errors={errors}
         clearForm={clearForm}
-      />
-      {reviewTiles}
+       />
+      <h1 className="padding center">Reviews</h1>
+      <div className="grid-x flex">
+        {reviewTiles}
+      </div>
     </div>
   )
  }
