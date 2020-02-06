@@ -1,11 +1,8 @@
 class Api::V1::ParksController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, only: [:create]
 
   def index
     render json: Park.all
-  end
-
-  def new
   end
 
   def show

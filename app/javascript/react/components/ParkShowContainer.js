@@ -18,6 +18,61 @@ const ParksShowContainer = props => {
 
   let parkId = props.match.params.id
 
+  const deleteReview = (reviewId) => {
+    fetch(`/api/v1/parks/${parkId}/reviews/${reviewId}`, {
+      credentials: 'same-origin',
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then((response) => {
+      setReviews(response.reviews)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
+  const updateReview = (editedReview) => {
+    fetch(`/api/v1/parks/${parkId}/reviews/${editedReview.id}`, {
+      credentials: 'same-origin',
+      method: "PATCH",
+      body: JSON.stringify(editedReview),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then((response) => {
+      setReviews(response.reviews)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
   useEffect(() => {
     fetch(`/api/v1/parks/${parkId}`)
     .then(response => {
@@ -69,20 +124,6 @@ const ParksShowContainer = props => {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
-    const reviewTiles = reviews.map((review) => {
-      return(
-        <ReviewTile
-          key={review.id}
-          id={review.id}
-          rating={review.rating}
-          body={review.body}
-          userId={review.user_id}
-          parkId={review.park_id}
-          votes={review.votes}
-        />
-      )
-    })
-
   const handleInputChange = (event) => {
     setNewReview({
       ...newReview,
@@ -119,6 +160,24 @@ const ParksShowContainer = props => {
     })
   }
 
+  const reviewTiles = reviews.map((review) => {
+    return(
+      <ReviewTile
+        key={review.id}
+        id={review.id}
+        rating={review.rating}
+        body={review.body}
+        userId={review.user_id}
+        parkId={review.park_id}
+        username={review.username}
+        currentUsername={review.current_username}
+        deleteReview={deleteReview}
+        updateReview={updateReview}
+        votes={review.votes}
+      />
+    )
+  })
+
   return(
     <div>
       <ParkShow
@@ -136,6 +195,6 @@ const ParksShowContainer = props => {
       {reviewTiles}
     </div>
   )
-}
+ }
 
 export default ParksShowContainer;

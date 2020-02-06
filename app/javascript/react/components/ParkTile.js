@@ -7,7 +7,7 @@ const ParkTile = ({ parkData }) => {
   let { id, name, state, photo, average } = parkData
 
   return (
-    <div className="row" align="center">
+    <div className="row">
       <div className="columns small-10">
         <div>
           <div className="image-wrapper overlay-fade-in">
