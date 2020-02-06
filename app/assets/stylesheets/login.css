@@ -32,10 +32,11 @@ a {
   font-size: 24px;
 }
 
-.links {
+#links {
   position: relative;
   text-align: center;
   margin-top: 20px;
+  color: black;
 }
 
 .signup {
@@ -44,4 +45,8 @@ a {
   background-color: #005236;
   color: #FFFF;
   font-size: 24px;
+}
+
+.fas {
+  color: white;
 }
