@@ -24,7 +24,7 @@ const ParksShowContainer = props => {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      }
+      },
     })
     .then(response => {
       if (response.ok) {
@@ -170,7 +170,7 @@ const ParksShowContainer = props => {
         currentUsername={review.current_username}
         deleteReview={deleteReview}
         updateReview={updateReview}
-        />
+      />
     )
   })
 
@@ -197,6 +197,6 @@ const ParksShowContainer = props => {
       </div>
     </div>
   )
-}
+ }
 
 export default ParksShowContainer;

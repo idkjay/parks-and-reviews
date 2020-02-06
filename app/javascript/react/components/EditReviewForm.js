@@ -7,8 +7,8 @@ const EditReviewForm = (props) => {
   let className = "hidden"
   const [ editedReview, setEditedReview ] = useState({
     id: props.id,
-    rating: "",
-    body: ""
+    rating: props.rating,
+    body: props.body
   })
 
   const ratingOptions = ratings.map((rating) => <option key={rating} value={rating}>{rating}</option>)
