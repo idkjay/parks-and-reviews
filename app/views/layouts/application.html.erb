@@ -8,28 +8,31 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+  <div class="top-bar-container" data-sticky-container>
+    <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
+      <nav class="top-bar">
+        <h1 class="title"><a href="/">Parks and Reviews</a> </h1>
+        <section class="top-bar-section">
+          <div class="right">
+            <%- if user_signed_in? -%>
+            <img class="thumbnail" src=<%= current_user.profile_photo %>>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+              <% if current_user.admin? %>
+                <br />
+                <%= link_to "New Park", api_v1_parks_new_path %>
+              <% end %>
+            <%- else -%>
+              <%= link_to 'Sign Up', new_user_registration_path %>
 
-  <nav class="top-bar">
-    <h1 class="title"><a href="/">Parks and Reviews</a></h1>
-
-    <section class="top-bar-section">
-      <div class="right">
-        <%- if user_signed_in? -%>
-        <img class="thumbnail" src=<%= current_user.profile_photo %>>
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-          <% if current_user.admin? %>
-            <br />
-            <%= link_to "New Park", api_v1_parks_new_path %>
-          <% end %>
-        <%- else -%>
-          <%= link_to 'Sign Up', new_user_registration_path %>
-
-          <%= link_to 'Sign In', new_user_session_path %>
-        <%- end -%>
-      </div>
-    </section>
-  </nav>
+              <%= link_to 'Sign In', new_user_session_path %>
+            <%- end -%>
+          </div>
+        </section>
+      </nav>
+    </div>
+  </div>
 
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
