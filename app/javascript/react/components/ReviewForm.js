@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import ErrorList from "./ErrorList"
 import _ from "lodash"
 
-const ratings = [1, 2, 3, 4, 5]
+const ratings = ["", 1, 2, 3, 4, 5]
 
 const ReviewForm = ({ handleSubmit, handleInputChange, clearForm, newReview, errors }) => {
 
@@ -23,9 +23,9 @@ const ReviewForm = ({ handleSubmit, handleInputChange, clearForm, newReview, err
           <textarea onChange={handleInputChange} id="body" value={newReview.body}/>
         </label>
 
-        <input id="submit" type="submit" />
+        <input className="form-input" id="submit" type="submit" />
         <br />
-        <input type="button" onClick={clearForm} value="Clear" />
+        <input className="form-input" type="button" onClick={clearForm} value="Clear" />
       </form>
     </div>
   )

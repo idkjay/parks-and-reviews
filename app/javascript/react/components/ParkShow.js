@@ -4,7 +4,6 @@ const ParkShow = props => {
   return(
     <div>
       <h1 className="center" id="name">{props.name}</h1>
-      <hr/>
       <div className="grid-container">
         <div className="grid-x">
           <div className="center">

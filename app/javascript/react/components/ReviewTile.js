@@ -17,7 +17,7 @@ const ReviewTile = props => {
     <div className="medium-10 large-4 card-section center">
       <div className="review-padding callout">
         <h4 className="font-size" id="review-rating">Rating: {rating}</h4>
-        <p className="review-side-space font-size" id="review-body">{body}</p>
+        <p className="review-side-space" id="review-body">{body}</p>
         <p className="font-size" id="username">Posted by: {username}</p>
         <input className={className} type="button" onClick={handleDelete} value="Delete Review" />
 

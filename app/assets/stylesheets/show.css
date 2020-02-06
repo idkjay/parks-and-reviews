@@ -6,14 +6,6 @@
   padding-top: 30px;
 }
 
-.edit-form-padding {
-  text-align: center;
-  padding-top: 30px;
-  padding-left: 100px;
-  padding-right: 100px;
-  margin-right: 100px;
-}
-
 .review-form-title {
   background-color: #F5FADC;
 }
@@ -31,8 +23,8 @@
 
 .review-padding {
   padding-top: 40px;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
   border-radius: 10px;
 }
 
@@ -76,6 +68,8 @@
   max-width: 50%;
   float:left;
   text-align: center;
+  border: solid;
+  border-color: #004D31;
   border-radius: 10px;
   margin-left: 40px;
   margin-top: 20px;
@@ -97,13 +91,22 @@ label {
 }
 
 .review-form {
+  border: solid;
+  border-color: #004D31;
+  border-radius: 10px;
   display: block;
   font-weight: bold;
   border-radius: 10px;
   margin-left: 260px;
   margin-right: 260px;
+  margin-top: 50px;
   background-color: #F5FADC;
   padding-right: 150px;
   padding-left: 150px;
   padding-bottom: 50px;
+}
+
+.form-input {
+  display: block;
+  margin: auto;
 }
