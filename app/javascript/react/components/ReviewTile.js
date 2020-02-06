@@ -22,13 +22,13 @@ const ReviewTile = props => {
         <input className={className} type="button" onClick={handleDelete} value="Delete Review" />
 
         <EditReviewForm
-        body={body}
-        rating={rating}
-        updateReview={updateReview}
-        id={id}
-        className={className}
-        username={username}
-        currentUsername={currentUsername}
+          body={body}
+          rating={rating}
+          updateReview={updateReview}
+          id={id}
+          className={className}
+          username={username}
+          currentUsername={currentUsername}
         />
       </div>
     </div>
