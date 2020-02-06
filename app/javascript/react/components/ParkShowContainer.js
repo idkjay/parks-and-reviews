@@ -185,7 +185,9 @@ const ParksShowContainer = props => {
         photo={parkInfo.photo}
       />
       <h1 className="padding center">Reviews</h1>
-      {reviewTiles}
+      <div className="grid-x flex">
+        {reviewTiles}
+      </div>
       <ReviewForm
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}

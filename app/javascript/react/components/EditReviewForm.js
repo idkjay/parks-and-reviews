@@ -28,15 +28,17 @@ const EditReviewForm = (props) => {
   return(
     <div className={className}>
       <form className="padding" onSubmit={handleEditSubmit}>
-        Edit your review:
+        <div className="font-size">
+          Edit your review:
+        </div>
         <label>
           Rating:
-          <input onChange={handleEditInputChange} type="text" id="rating" value={editedReview.rating} placeholder={props.rating} />
+          <input className="edit-rating" onChange={handleEditInputChange} type="text" id="rating" value={editedReview.rating} placeholder={props.rating} />
         </label>
 
         <label>
           Review:
-          <textarea onChange={handleEditInputChange} id="body" value={editedReview.body} placeholder={props.body}/>
+          <textarea className="edit-form-padding" onChange={handleEditInputChange} id="body" value={editedReview.body} placeholder={props.body}/>
         </label>
 
         <input id = "edit-submit" type="submit" value="Update Review"/>

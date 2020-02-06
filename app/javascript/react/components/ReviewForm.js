@@ -9,8 +9,8 @@ const ReviewForm = ({ handleSubmit, handleInputChange, clearForm, newReview, err
   const ratingOptions = ratings.map((rating) => <option key={rating} value={rating}>{rating}</option>)
 
   return(
-    <div className="">
-      <h3>Add New Review</h3>
+    <div className="review-form callout">
+      <h3 className="review-form-title">Add New Review</h3>
       <form id="review-form" onSubmit={handleSubmit} >
         <ErrorList errors={errors}/>
         <label>
@@ -24,6 +24,7 @@ const ReviewForm = ({ handleSubmit, handleInputChange, clearForm, newReview, err
         </label>
 
         <input id="submit" type="submit" />
+        <br />
         <input type="button" onClick={clearForm} value="Clear" />
       </form>
     </div>
