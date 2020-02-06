@@ -1,0 +1,47 @@
+.field {
+  width: 100%;
+  margin: auto;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  background-color: #FFFF;
+  border: solid black 2px;
+}
+
+#new_user {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.login {
+  background-color: #FAF2E4;
+  text-align: center;
+}
+
+.cell {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+a {
+  font-size: 24px;
+}
+
+.links {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup {
+  width: 120px;
+  height: 40px;
+  background-color: #005236;
+  color: #FFFF;
+  font-size: 24px;
+}
