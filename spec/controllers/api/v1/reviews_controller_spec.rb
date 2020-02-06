@@ -86,7 +86,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         post :create, params: new_review, format: :json
         response_body = JSON.parse(response.body)
 
-        expect(response_body["review"].length).to eq 9
+        expect(response_body["review"].length).to eq 10
         expect(response_body["review"]["rating"]).to eq 1
         expect(response_body["review"]["body"]).to eq "Fake rating"
       end
