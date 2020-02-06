@@ -5,7 +5,9 @@ class ReviewSerializer < ActiveModel::Serializer
   belongs_to :park
 
   def username
-    object.user.username
+    if current_user?
+      object.user.username
+    end
   end
 
   def current_user?
@@ -15,8 +17,10 @@ class ReviewSerializer < ActiveModel::Serializer
   def votes
     object.votes
   end
-  
+
   def current_username
-    scope.username
+    if current_user?
+      scope.username
+    end
   end
 end
