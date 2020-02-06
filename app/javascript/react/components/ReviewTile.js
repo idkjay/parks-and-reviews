@@ -3,7 +3,7 @@ import EditReviewForm from "./EditReviewForm"
 import VoteTile from "./VoteTile"
 
 const ReviewTile = props => {
-  const [ votes, setVotes ] = useState([])
+  const [ votes, setVotes ] = useState(props.votes)
   const { id, rating, body, userId, parkId, username, currentUsername, deleteReview, updateReview } = props
   let className = "hidden"
 
@@ -14,23 +14,6 @@ const ReviewTile = props => {
   if(currentUsername === username) {
     className = "visible"
   }
-
-  useEffect(() => {
-    fetch(`/api/v1/parks/${parkId}/reviews/${id}/votes`).then(response => {
-      if (response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage)
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-      setVotes(body.votes)
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
 
   const handleVoteClick = (voteInfo) => {
     fetch(`/api/v1/parks/${parkId}/reviews/${id}/votes`, {
