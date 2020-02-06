@@ -5,12 +5,16 @@ class Api::V1::VotesController < ApplicationController
   end
 
   def create
+    binding.pry
     vote = Vote.new(vote_params)
+    user = current_user
+    review = Review.find(params["review_id"])
+    # binding.pry
   end
 
   private
-
+  #
   def vote_params
-    params.require(:vote).permit(:user_id, :review_id)
+    params.require(:vote).permit(:park_id, :user_id, :review_id)
   end
 end

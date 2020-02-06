@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import EditReviewForm from "./EditReviewForm"
-
 import VoteTile from "./VoteTile"
 
 const ReviewTile = props => {
+  const [ votes, setVotes ] = useState({
+    count: 0
+  })
   const { id, rating, body, userId, parkId, username, currentUsername, deleteReview, updateReview } = props
   let className = "hidden"
 
@@ -15,6 +17,51 @@ const ReviewTile = props => {
     className = "visible"
   }
 
+  useEffect(() => {
+    fetch(`/api/v1/parks/${parkId}/reviews/${id}/votes`).then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      setVotes(body.votes)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }, [])
+
+  const handleVoteClick = (voteInfo) => {
+    debugger
+    fetch(`/api/v1/parks/${parkId}/reviews/${id}/votes`, {
+      credentials: "same-origin",
+      method: "POST",
+      body: JSON.stringify(voteInfo),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      debugger
+      setVotes(body.votes)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
   return (
     <div className="row center">
       <h4 id="review-rating">Rating: {rating}</h4>
@@ -22,7 +69,8 @@ const ReviewTile = props => {
       <p id="username">Posted by: {username}</p>
       <input className={className} type="button" onClick={handleDelete} value="Delete Review" />
       <VoteTile
-        votes={props.votes}
+        votes={votes}
+        handleVoteClick={handleVoteClick}
       />
       <EditReviewForm
         body={body}
