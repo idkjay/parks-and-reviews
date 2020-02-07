@@ -6,57 +6,20 @@ class Api::V1::VotesController < ApplicationController
 
   def create
     review = Review.find(params["review_id"])
-    # current_user_vote = Vote.where('user_id =? AND review_id=?', current_user, review).first
     votes = Vote.where(review: params[:review_id])
-    # review.votes = review.votes.each do |vote|
-    #   return vote.up + vote.down
-    #
-    # end
-    if params[:json] == "up"
-      binding.pry
-     Vote.create(up: 1, down: 0, review: review, user: current_user)
+
+    if votes.where(user: current_user).length == 0
+      if votes.length >= 0
+        if params[:_json] == "up"
+         Vote.create(up: 1, down: 0, review: review, user: current_user)
+        end
+
+        if params[:_json] == "down"
+          Vote.create(up: 0, down: -1, review: review, user: current_user)
+        end
+      end
     end
-    # binding.pry
-
-    # votes.each do |vote|
-    #   # if vote.up == 1
-    #   #   Vote.create(up: 1, down: 0, review: review, user: current_user)
-    #   if vote.down == 1
-    #     Vote.create(up: 0, down: 1, review: review, user: current_user)
-    #   end
-    # end
-
-    # if current_user_vote
-    #   if current_user_vote.up == 1 && current_user_vote.down == 0
-    #     if params[:_json] == "up"
-    #       current_user_vote.up = 0
-    #     elsif params[:_json] == "down"
-    #       current_user_vote.up = 0
-    #       current_user_vote.down = 1
-    #     end
-    #   elsif current_user_vote.up == 0 && current_user_vote.down == 1
-    #     if params[:_json] == "down"
-    #       current_user_vote.down = 0
-    #     elsif params[:_json] == "up"
-    #       current_user_vote.up = 1
-    #       current_user_vote.down = 0
-    #     end
-    #   elsif current_user_vote.up == 0 && current_user_vote.down == 0
-    #     if params[:_json] == "up"
-    #       current_user_vote.up = 1
-    #     elsif params[:_json] == "down"
-    #       current_user_vote.down = 1
-    #     end
-    #   end
-    #   current_user_vote.save
-    # else
-    #   if params[:_json] == "up"
-    #     vote = Vote.new(up: 1, down: 0, review: review, user: current_user)
-    #   elsif params[:_json] == "down"
-    #     vote = Vote.new(up: 0, down: 1, review: review, user: current_user)
-    #   end
-    #   vote.save
-    # end
+    
     render json: review.votes
   end
 end
