@@ -44,14 +44,16 @@ const ReviewTile = props => {
   return (
     <div className="medium-10 large-4 card-section center">
       <div className="review-padding callout">
-        <h4 className="font-size" id="review-rating">Rating: {rating}</h4>
-        <p className="review-side-space" id="review-body">{body}</p>
-        <p className="font-size" id="username">Posted by: {username}</p>
-        <input className={className} type="button" onClick={handleDelete} value="Delete Review" />
+        <div className="inline">
+          <p className="top-review" id="username">@{username} - </p>
+          <p className="top-review" id="review-rating">Rating: {rating}/5</p>
+      </div>
         <VoteTile
           votes={votes}
           handleVoteClick={handleVoteClick}
         />
+      <p className="review-side-space callout" id="review-body">{body}</p>
+        <input className={className} type="button" onClick={handleDelete} value="Delete Review" />
         <EditReviewForm
           body={body}
           rating={rating}

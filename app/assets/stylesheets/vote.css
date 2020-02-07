@@ -1,3 +1,19 @@
 .down {
   transform: rotate(180deg);
 }
+
+.fa-tree {
+  color: #000;
+}
+
+.fa-tree:hover {
+  color: #005236;
+}
+
+.fa-tree:active {
+  color: #005236;
+}
+
+.fa-tree:focus {
+  color: #005236;
+}

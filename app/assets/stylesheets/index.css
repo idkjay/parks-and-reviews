@@ -1,3 +1,44 @@
+body, h2, h3, h1 {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 0.15em;
+  background-color: #FAF2E4;
+}
+
+.color {
+  color: #FFF;
+}
+
+.color:hover {
+  color: white;
+  text-shadow: 2px 2px #000;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: -15px;
+}
+
+.top-bar, .top-bar-section, .right {
+  font-size: 30px;
+  background-color: #005236;
+  margin-bottom: 7px;
+}
+
+.title {
+  font-family: 'Bebas Neue', cursive;
+  background-color: #005236;
+  text-shadow: 1px 1px #000;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #1779ba;
+}
+
 .photo {
   height: 100%;
   width: 100%;
@@ -5,14 +46,10 @@
   opacity: 1;
 }
 
-.body {
-  background-color: #FAF2E4;
-  margin-bottom: 25px;
-}
-
 .index-title {
   color: #005236;
   font-size: 62px;
+  text-shadow: 1px 1px #000;
 }
 
 .image-wrapper {
@@ -35,7 +72,7 @@
 }
 
 .overlay-fade-in p {
-  font-family: 'Special Elite', cursive;
+  font-family: 'Bebas Neue', cursive;
   letter-spacing: 0.15em;
   color: #f4f4f4;
   font-size: 24px;
@@ -53,7 +90,7 @@
 }
 
 .overlay-fade-in h2 {
-  font-family: 'Special Elite', cursive;
+  font-family: 'Bebas Neue', cursive;
   font-weight: 300;
   color: #f4f4f4;
   font-size: 38px;
@@ -79,4 +116,12 @@
 
 .overlay-fade-in:hover p {
   transition-delay: 0.0s;
+}
+
+.login {
+  color: #000;
+}
+
+.login:hover {
+  color: #005236;
 }

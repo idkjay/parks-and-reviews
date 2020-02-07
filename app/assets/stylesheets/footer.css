@@ -1,0 +1,88 @@
+.responsive-blog-footer {
+  margin-top: 20px;
+  background: #005236;
+  padding: 3rem 3rem;
+  color: white;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .responsive-blog-footer h4 {
+    font-size: 2rem;
+  }
+}
+
+.creator {
+  font-family: 'Bebas Neue', cursive;
+  color: #FFF;
+  display: inline-block;
+  text-align: center;
+}
+
+.columns {
+  text-align: center;
+  margin: auto;
+}
+
+.responsive-blog-footer .fa-chevron-circle-up {
+  font-size: 3rem;
+  color: #FFF;
+}
+
+.responsive-blog-footer .fa-chevron-circle-up:hover {
+  color: #000;
+  transition: color 0.3s ease-in;
+}
+
+.fa-linkedin-square {
+  color: #FFF;
+}
+
+.fa-linkedin-square:hover {
+  color: #1779ba;
+}
+
+.fa-github-square {
+  color: #FFF
+}
+
+.fa-github-square:hover {
+  color: #000
+}
+
+.maker {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  border: 5px;
+  border-radius: 5px;
+}
+
+.rights {
+  color: #FFF;
+}
+
+.rights:hover {
+  color: #000;
+}
+
+.trees {
+  width: 100%;
+  margin-bottom: -40px;
+}
+
+hr {
+  font-size:50px;
+  padding:0 25%;
+  text-align:center;
+}
+
+div.item {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 16%;
+}
+
+.caption {
+  display: block;
+}

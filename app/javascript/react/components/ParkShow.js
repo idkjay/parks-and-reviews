@@ -5,16 +5,15 @@ const ParkShow = ({ parkInfo, stateAverage }) => {
 
   return(
     <div>
-      <h1 className="center" id="name">{name}</h1>
+      <h1 className="center" id="name-show">{name} National Park</h1>
       <div className="grid-container">
         <div className="grid-x">
           <div className="center">
             <img className="image cell small-10 large-7" src={photo} id="photo"/>
               <div className="review-margin review-info-box">
-                <h4 className="cell small-10 large-5" id="location">{state}</h4>
+                <h4 className="cell small-10 large-5" id="location">Located in {state}</h4>
+                <p className="cell small-10 large-5 " id="description">{description}</p>
                 <h4 className="cell small-10 large-5" id="average">{stateAverage}</h4>
-                <br />
-                <p className="cell small-10 large-5" id="description">{description}</p>
               </div>
           </div>
         </div>

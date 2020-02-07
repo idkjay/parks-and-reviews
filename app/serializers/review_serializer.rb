@@ -5,9 +5,7 @@ class ReviewSerializer < ActiveModel::Serializer
   belongs_to :park
 
   def username
-    if current_user?
-      object.user.username
-    end
+    object.user.username
   end
 
   def current_user?

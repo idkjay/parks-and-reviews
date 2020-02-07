@@ -23,9 +23,9 @@ const ReviewForm = ({ handleSubmit, handleInputChange, clearForm, newReview, err
           <textarea onChange={handleInputChange} id="body" value={newReview.body}/>
         </label>
 
-        <input className="form-input" id="submit" type="submit" />
+        <input className="form-input signup" id="submit" type="submit" />
         <br />
-        <input className="form-input" type="button" onClick={clearForm} value="Clear" />
+        <input className="form-input signup" type="button" onClick={clearForm} value="Clear" />
       </form>
     </div>
   )
