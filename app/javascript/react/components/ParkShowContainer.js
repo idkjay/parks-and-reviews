@@ -16,6 +16,28 @@ const ParksShowContainer = props => {
   const [ errors, setErrors ] = useState("")
   const [ getAverage, setAverage ] = useState("")
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+
+    fetch(`/api/v1/parks/${parkId}`)
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then(response => response.json())
+    .then(response => {
+      setAverage(response.park.average)
+      setParkInfo(response.park)
+      setReviews(response.park.reviews)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }, [])
+
   let parkId = props.match.params.id
 
   const deleteReview = (reviewId) => {
@@ -73,25 +95,6 @@ const ParksShowContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-  useEffect(() => {
-    fetch(`/api/v1/parks/${parkId}`)
-    .then(response => {
-      if (response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage)
-        throw error
-      }
-    })
-    .then(response => response.json())
-    .then(response => {
-      setAverage(response.park.average)
-      setParkInfo(response.park)
-      setReviews(response.park.reviews)
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }, [])
 
     const addNewReview = (formPayload) => {
       fetch(`/api/v1/parks/${parkId}/reviews`, {
