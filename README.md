@@ -17,7 +17,7 @@ Parks and Reviews
 Ruby: 2.6.3, Rails: 5.2.3, React, CarrierWave, Foundation, Fog-AWS
 
 # Description
-National Parks review site. Users can submit reviews of national parks they have been to and can also see reviews of other users.
+National Parks review site. Users can submit reviews of national parks they have been to and can also see reviews of other users. Users can edit their own reviews and upvote or downvote others reviews.
 
 # Authors
-Jordan Chu, Ben Hatfield, Hannah Horobin, Robert Huff, and Afia Kyalo
+Jordan Chu, Ben Hatfield, Hannah Horobin, Afia Kyalo, and Robert Huff
