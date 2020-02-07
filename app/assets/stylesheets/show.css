@@ -2,7 +2,7 @@
   display: none;
 }
 
-.padding {
+.edit-form {
   padding-top: 30px;
 }
 
@@ -11,7 +11,6 @@
 }
 
 #name-show {
-  font-family: 'Bebas Neue', cursive;
   font-size: 80px;
 }
 
@@ -36,10 +35,6 @@
 .rating-field {
   margin-left: auto;
   width: 50px;
-}
-
-#park-rating, #review-rating {
-  font-family: 'Bebas Neue', cursive;
 }
 
 #average {
@@ -71,6 +66,11 @@
 }
 
 .top-review {
+  font-size: 23px;
+  text-align: center;
+}
+
+#username {
   font-size: 30px;
 }
 
@@ -147,19 +147,6 @@ label {
   font-weight: bold;
 }
 
-#username {
-  max-width: 150px;
-}
-
-#review-rating {
-  max-width: 150px;
-  padding-left: 10px;
-}
-
 .votetile {
   margin-top: -25px;
-}
-
-.inline {
-  display: inline-flex;
 }

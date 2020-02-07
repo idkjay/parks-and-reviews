@@ -31,7 +31,7 @@ const EditReviewForm = (props) => {
 
   return(
     <div className={className}>
-      <form className="padding" onSubmit={handleEditSubmit}>
+      <form className="edit-form" onSubmit={handleEditSubmit}>
         <div className="edit-review">
           Edit your review
         </div>

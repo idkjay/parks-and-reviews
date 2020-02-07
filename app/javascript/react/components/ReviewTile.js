@@ -44,9 +44,11 @@ const ReviewTile = props => {
   return (
     <div className="medium-10 large-4 card-section center">
       <div className="review-padding callout">
-        <div className="inline">
-          <p className="top-review" id="username">@{username} - </p>
-          <p className="top-review" id="review-rating">Rating: {rating}/5</p>
+        <div className="row">
+          <div className="columns medium-4">
+            <p className="top-review" id="username">@{username}</p>
+            <p className="top-review" id="review-rating">Rating: {rating}/5</p>
+          </div>
       </div>
         <VoteTile
           votes={votes}
