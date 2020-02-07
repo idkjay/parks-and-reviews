@@ -24,8 +24,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-Name: Parks and Reviews
+#Name
+Parks and Reviews
 
 Description: National Parks review site. Users can submit reviews of national parks they have been to and can also see reviews of other users.
 
