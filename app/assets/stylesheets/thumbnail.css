@@ -1,5 +1,12 @@
 .thumbnail {
   height: 70px;
   width: 70px;
-  margin: auto;
+  border-width: 2px;
+}
+.logo {
+  height: 70px;
+  width: 70px;
+  border: none;
+  display: inline-block;
+  margin-left: -15px;
 }

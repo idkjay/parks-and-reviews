@@ -79,7 +79,7 @@ const NewParkForm = props => {
   }
 
   return (
-    <div className="grid-container">
+    <div className="grid-container new">
       <form onSubmit={handleSubmit} className="new-name-form callout">
         <h2 className="park-form-title">New Park Form</h2>
 

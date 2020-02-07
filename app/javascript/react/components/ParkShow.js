@@ -5,7 +5,7 @@ const ParkShow = ({ parkInfo, stateAverage }) => {
 
   return(
     <div>
-      <h1 className="center" id="name">{name} National Park</h1>
+      <h1 className="center" id="name-show">{name} National Park</h1>
       <div className="grid-container">
         <div className="grid-x">
           <div className="center">

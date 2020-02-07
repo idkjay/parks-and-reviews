@@ -1,5 +1,5 @@
 .responsive-blog-footer {
-  margin-top: 25px;
+  margin-top: 20px;
   background: #005236;
   padding: 3rem 3rem;
   color: white;
@@ -14,27 +14,13 @@
 .creator {
   font-family: 'Bebas Neue', cursive;
   color: #FFF;
-  vertical-align:
+  display: inline-block;
+  text-align: center;
 }
 
-.responsive-blog-footer p {
-  color: #FFF;
-}
-
-.responsive-blog-footer .mailing-list {
-  margin-bottom: 1rem;
-}
-
-.responsive-blog-footer .mailing-container {
-  margin-bottom: 2rem;
-}
-
-.responsive-blog-footer .about-section, .responsive-blog-footer .tag-section {
-  margin-bottom: 2rem;
-}
-
-.responsive-blog-footer .about-section a, .responsive-blog-footer .tag-section a {
-  color: #1779ba;
+.columns {
+  text-align: center;
+  margin: auto;
 }
 
 .responsive-blog-footer .fa-chevron-circle-up {
@@ -43,15 +29,24 @@
 }
 
 .responsive-blog-footer .fa-chevron-circle-up:hover {
-  color: #b0b0b0;
+  color: #000;
   transition: color 0.3s ease-in;
 }
 
 .fa-linkedin-square {
   color: #FFF;
 }
+
 .fa-linkedin-square:hover {
   color: #1779ba;
+}
+
+.fa-github-square {
+  color: #FFF
+}
+
+.fa-github-square:hover {
+  color: #000
 }
 
 .maker {
@@ -64,4 +59,30 @@
 
 .rights {
   color: #FFF;
+}
+
+.rights:hover {
+  color: #000;
+}
+
+.trees {
+  width: 100%;
+  margin-bottom: -40px;
+}
+
+hr {
+  font-size:50px;
+  padding:0 25%;
+  text-align:center;
+}
+
+div.item {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 16%;
+}
+
+.caption {
+  display: block;
 }

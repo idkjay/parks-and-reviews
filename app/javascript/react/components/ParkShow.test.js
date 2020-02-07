@@ -29,11 +29,11 @@ describe("ParkShow", () => {
   })
 
   it("should render an h1 element containing the park name received via props", () => {
-    expect(wrapper.find("#name").text()).toBe("Fake Tinker Falls")
+    expect(wrapper.find("#name-show").text()).toBe("Fake Tinker Falls National Park")
   })
 
   it("should render an h3 element containing the park state received via props", () => {
-    expect(wrapper.find("#location").text()).toBe("Fake New York")
+    expect(wrapper.find("#location").text()).toBe("Located in Fake New York")
   })
 
   it("should render an p element containing the park description received via props", () => {

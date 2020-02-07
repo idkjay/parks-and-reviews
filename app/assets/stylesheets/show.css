@@ -10,9 +10,13 @@
   background-color: #F5FADC;
 }
 
+#name-show {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 80px;
+}
+
 #name {
-  font-family: 'Special Elite', cursive;
-  font-size: 40px;
+  text-shadow: 1px 1px #000;
 }
 
 .edit-rating {
@@ -62,7 +66,11 @@
   height: 390px;
 }
 
-.font-size {
+.edit-review {
+  font-size: 20px;
+}
+
+.top-review {
   font-size: 30px;
 }
 
@@ -77,7 +85,7 @@
 
 .review-info-box {
   border: solid;
-  border-color: #004D31;
+  border-color: #000;
   border-radius: 10px;
   padding-top: 2%;
   background-color: #F5FADC;
@@ -91,7 +99,7 @@
   float:left;
   text-align: center;
   border: solid;
-  border-color: #004D31;
+  border-color: #000;
   border-radius: 10px;
   margin-left: 40px;
   margin-top: 20px;
@@ -115,7 +123,7 @@ label {
 
 .review-form {
   border: solid;
-  border-color: #004D31;
+  border-color: #000;
   border-radius: 10px;
   display: block;
   font-weight: bold;

@@ -9,7 +9,8 @@ body, h2, h3, h1 {
 }
 
 .color:hover {
-  color: #1779ba;
+  color: white;
+  text-shadow: 2px 2px #000;
 }
 
 h3 {
@@ -21,11 +22,13 @@ h3 {
 .top-bar, .top-bar-section, .right {
   font-size: 30px;
   background-color: #005236;
+  margin-bottom: 7px;
 }
 
 .title {
   font-family: 'Bebas Neue', cursive;
   background-color: #005236;
+  text-shadow: 1px 1px #000;
 }
 
 a {
@@ -46,6 +49,7 @@ a:hover {
 .index-title {
   color: #005236;
   font-size: 62px;
+  text-shadow: 1px 1px #000;
 }
 
 .image-wrapper {
@@ -68,7 +72,7 @@ a:hover {
 }
 
 .overlay-fade-in p {
-  font-family: 'Special Elite', cursive;
+  font-family: 'Bebas Neue', cursive;
   letter-spacing: 0.15em;
   color: #f4f4f4;
   font-size: 24px;
@@ -86,7 +90,7 @@ a:hover {
 }
 
 .overlay-fade-in h2 {
-  font-family: 'Special Elite', cursive;
+  font-family: 'Bebas Neue', cursive;
   font-weight: 300;
   color: #f4f4f4;
   font-size: 38px;
@@ -112,4 +116,12 @@ a:hover {
 
 .overlay-fade-in:hover p {
   transition-delay: 0.0s;
+}
+
+.login {
+  color: #000;
+}
+
+.login:hover {
+  color: #005236;
 }

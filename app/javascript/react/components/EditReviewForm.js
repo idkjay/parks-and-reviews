@@ -32,12 +32,12 @@ const EditReviewForm = (props) => {
   return(
     <div className={className}>
       <form className="padding" onSubmit={handleEditSubmit}>
-        <div className="font-size">
-          Edit your review:
+        <div className="edit-review">
+          Edit your review
         </div>
-        <label>
+        <label className="edit-review">
           Rating:
-          <select className="edit-rating" onChange={handleEditInputChange} id="rating" value={editedReview.rating} placeholder={props.rating}>{ratingOptions}</select>
+          <select className="rating-field" onChange={handleEditInputChange} id="rating" value={editedReview.rating} placeholder={props.rating}> {ratingOptions}</select>
         </label>
 
         <label>

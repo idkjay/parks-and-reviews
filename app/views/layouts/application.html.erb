@@ -14,20 +14,21 @@
   <div class="top-bar-container" data-sticky-container>
     <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
       <nav class="top-bar">
-        <h1 class="title color"><a class="color" href="/">Parks and Reviews</a> </h1>
+        <h1 class="title color"><a class="color" href="/"> Parks and Reviews <img class="logo color" src="https://i.imgur.com/lmfhsRP.png" alt=""></a></h1>
         <section class="top-bar-section">
           <div class="right">
+            <ul>
+
+            </ul>
             <%- if user_signed_in? -%>
             <img class="thumbnail color" src=<%= current_user.profile_photo %>>
-              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "title color signout" %>
               <% if current_user.admin? %>
-                <br />
-                <%= link_to "New Park", api_v1_parks_new_path %>
+                <%= link_to "New Park", api_v1_parks_new_path, :class => "title color signout" %>
               <% end %>
             <%- else -%>
-              <%= link_to 'Sign Up', new_user_registration_path, :class => "color"%>
-
-              <%= link_to 'Sign In', new_user_session_path, :class => "color" %>
+              <%= link_to 'Sign Up', new_user_registration_path, :class => "title color"%>
+              <%= link_to 'Sign In', new_user_session_path, :class => "title color" %>
             <%- end -%>
           </div>
         </section>
@@ -53,12 +54,13 @@
   <%= javascript_pack_tag 'application' %>
 
   <%= yield :extra_footer %>
-    <footer class="responsive-blog-footer">
+  <img class="trees" src="https://i.imgur.com/Xu4dM1T.png" alt="tree-border">
+  <footer class="responsive-blog-footer">
     <div class="row">
       <div class="medium-8 columns small-order-2 medium-order-1 about-container">
         <div class="row">
           <div class="medium-8 columns about-section">
-            <h4 class="creator">Meet the Creators</h4>
+            <h4 class="creator">Contributors</h4>
             <hr>
           </div>
         </div>
@@ -67,29 +69,54 @@
     <div class="row tag-search">
       <div class="columns">
         <ul class="menu simple tag-section">
-          <img class="maker" src="https://files.slack.com/files-pri/TPA8S1A2G-FTNEJ22AG/pic.jpg" alt="afia"/>
+          <div class="item">
+            <img class="maker" src="https://files.slack.com/files-pri/TPA8S1A2G-FTNEJ22AG/pic.jpg" alt="afia"/>
+            <span class="caption">Afia Kyalo</span>
+          </div>
+
           <li>
-            <a class="creator" href="https://www.linkedin.com/in/afiakyalo/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>Afia Kyalo
+            <a class="creator" href="https://www.linkedin.com/in/afiakyalo/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+            <a class="creator "href="https://github.com/afiakyalo"><i class="fa fa-github-square fa-2x"></i></a>
           </li>
 
-          <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2689/IMG_9956.jpg" alt="ben"/>
+          <div class="item">
+            <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2689/IMG_9956.jpg" alt="ben"/>
+            <span class="caption">Ben Hatfield</span>
+          </div>
+
           <li>
-            <a class="creator" href="https://www.linkedin.com/in/ben-z-hatfield/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>Ben Hatfield
+            <a class="creator" href="https://www.linkedin.com/in/ben-z-hatfield/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+            <a class="creator "href="https://github.com/BZHatfield"><i class="fa fa-github-square fa-2x"></i></a>
           </li>
 
-          <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2621/IMG_9961.jpg" alt="jordan"/>
+          <div class="item">
+            <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2685/IMG_9977.jpg" alt="hannah"/>
+            <span class="caption">Hannah Horobin</span>
+          </div>
+
           <li>
-            <a class="creator" href="https://www.linkedin.com/in/jordanchu1995/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>Jordan Chu
+            <a class="creator" href="https://www.linkedin.com/in/hannah-horobin/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+            <a class="creator "href="https://github.com/hhorobin"><i class="fa fa-github-square fa-2x"></i></a>
           </li>
 
-          <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2329/IMG_9938.jpg" alt="rob"/>
+          <div class="item">
+            <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2621/IMG_9961.jpg" alt="jordan"/>
+            <span class="caption">Jordan Chu</span>
+          </div>
+
           <li>
-            <a class="creator" href="https://www.linkedin.com/in/robert-huff8040/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>Robert Huff
+            <a class="creator" href="https://www.linkedin.com/in/jordanchu1995/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+            <a class="creator "href="https://github.com/idkjay"><i class="fa fa-github-square fa-2x"></i></a>
           </li>
 
-          <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2685/IMG_9977.jpg" alt="hannah"/>
+          <div class="item">
+            <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2329/IMG_9938.jpg" alt="rob"/>
+            <span class="caption">Robert Huff</span>
+          </div>
+
           <li>
-            <a class="creator" href="https://www.linkedin.com/in/hannah-horobin/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>Hannah Horobin
+            <a class="creator" href="https://www.linkedin.com/in/robert-huff8040/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+            <a class="creator "href="https://github.com/rob8040"><i class="fa fa-github-square fa-2x"></i></a>
           </li>
         </ul>
       </div>
@@ -97,7 +124,7 @@
       <br>
     </div>
     <div class="row columns flex-container align-justify">
-       <p class="rights"> all rights reserved @launch academy</p>
+       <a href="http://launchacademy.com/"><p class="title color">inspired? apply now @launchacademy</p></a>
       <div class="up-arrow">
         <a href="#top"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a>
       </div>

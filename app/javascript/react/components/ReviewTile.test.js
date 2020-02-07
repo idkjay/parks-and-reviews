@@ -27,7 +27,7 @@ describe("ReviewTile", () => {
   })
 
   it("should render an p element containing the rating", () => {
-    expect(wrapper.find("#review-rating").text()).toBe("Rating: 1")
+    expect(wrapper.find("#review-rating").text()).toBe("Rating: 1/5")
   })
 
   it("should render an p element containing the review text", () => {
