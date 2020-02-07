@@ -4,6 +4,7 @@
   <title>Parks and Reviews</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Bebas+Neue|Six+Caps|Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran|Open+Sans+Condensed:300|Slabo+27px&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
@@ -13,20 +14,20 @@
   <div class="top-bar-container" data-sticky-container>
     <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
       <nav class="top-bar">
-        <h1 class="title"><a href="/">Parks and Reviews</a> </h1>
+        <h1 class="title color"><a class="color" href="/">Parks and Reviews</a> </h1>
         <section class="top-bar-section">
           <div class="right">
             <%- if user_signed_in? -%>
-            <img class="thumbnail" src=<%= current_user.profile_photo %>>
+            <img class="thumbnail color" src=<%= current_user.profile_photo %>>
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
               <% if current_user.admin? %>
                 <br />
                 <%= link_to "New Park", api_v1_parks_new_path %>
               <% end %>
             <%- else -%>
-              <%= link_to 'Sign Up', new_user_registration_path %>
+              <%= link_to 'Sign Up', new_user_registration_path, :class => "color"%>
 
-              <%= link_to 'Sign In', new_user_session_path %>
+              <%= link_to 'Sign In', new_user_session_path, :class => "color" %>
             <%- end -%>
           </div>
         </section>
@@ -52,5 +53,55 @@
   <%= javascript_pack_tag 'application' %>
 
   <%= yield :extra_footer %>
+    <footer class="responsive-blog-footer">
+    <div class="row">
+      <div class="medium-8 columns small-order-2 medium-order-1 about-container">
+        <div class="row">
+          <div class="medium-8 columns about-section">
+            <h4 class="creator">Meet the Creators</h4>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row tag-search">
+      <div class="columns">
+        <ul class="menu simple tag-section">
+          <img class="maker" src="https://files.slack.com/files-pri/TPA8S1A2G-FTNEJ22AG/pic.jpg" alt="afia"/>
+          <li>
+            <a class="creator" href="https://www.linkedin.com/in/afiakyalo/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>Afia Kyalo
+          </li>
+
+          <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2689/IMG_9956.jpg" alt="ben"/>
+          <li>
+            <a class="creator" href="https://www.linkedin.com/in/ben-z-hatfield/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>Ben Hatfield
+          </li>
+
+          <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2621/IMG_9961.jpg" alt="jordan"/>
+          <li>
+            <a class="creator" href="https://www.linkedin.com/in/jordanchu1995/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>Jordan Chu
+          </li>
+
+          <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2329/IMG_9938.jpg" alt="rob"/>
+          <li>
+            <a class="creator" href="https://www.linkedin.com/in/robert-huff8040/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>Robert Huff
+          </li>
+
+          <img class="maker" src="https://launchpass-production.s3.amazonaws.com/uploads/user/profile_photo/2685/IMG_9977.jpg" alt="hannah"/>
+          <li>
+            <a class="creator" href="https://www.linkedin.com/in/hannah-horobin/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>Hannah Horobin
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <br>
+    </div>
+    <div class="row columns flex-container align-justify">
+       <p class="rights"> all rights reserved @launch academy</p>
+      <div class="up-arrow">
+        <a href="#top"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

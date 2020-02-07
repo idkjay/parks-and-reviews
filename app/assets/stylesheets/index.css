@@ -1,13 +1,46 @@
+body, h2, h3, h1 {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 0.15em;
+  background-color: #FAF2E4;
+}
+
+.color {
+  color: #FFF;
+}
+
+.color:hover {
+  color: #1779ba;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: -15px;
+}
+
+.top-bar, .top-bar-section, .right {
+  font-size: 30px;
+  background-color: #005236;
+}
+
+.title {
+  font-family: 'Bebas Neue', cursive;
+  background-color: #005236;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #1779ba;
+}
+
 .photo {
   height: 100%;
   width: 100%;
   border-radius: 10px;
   opacity: 1;
-}
-
-.body {
-  background-color: #FAF2E4;
-  margin-bottom: 25px;
 }
 
 .index-title {

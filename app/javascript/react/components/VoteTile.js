@@ -18,8 +18,8 @@ const VoteTile = props => {
 
   return(
     <div className="votetile">
-      <i id="up" className="fa fa-tree up" onClick={handleClick}></i>{upvoteCount}
-      <i id="down" className="fa fa-tree down" onClick={handleClick}></i>{downvoteCount}
+      {upvoteCount} <i id="up" className="fa fa-tree up" onClick={handleClick}></i> 
+      <i id="down" className="fa fa-tree down" onClick={handleClick}></i> {downvoteCount}
     </div>
   )
 }

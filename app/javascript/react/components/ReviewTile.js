@@ -46,13 +46,13 @@ const ReviewTile = props => {
       <div className="review-padding callout">
         <div className="inline">
           <p className="font-size" id="username">@{username} • </p>
-          <h4 className="font-size" id="review-rating">Rating: {rating}/5</h4>
+          <p className="font-size" id="review-rating"> Rating: {rating}/5</p>
       </div>
         <VoteTile
           votes={votes}
           handleVoteClick={handleVoteClick}
-          />
-        <p className="review-side-space" id="review-body">{body}</p>
+        />
+      <p className="review-side-space" id="review-body">{body}</p>
         <input className={className} type="button" onClick={handleDelete} value="Delete Review" />
         <EditReviewForm
           body={body}

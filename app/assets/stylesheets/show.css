@@ -12,6 +12,7 @@
 
 #name {
   font-family: 'Special Elite', cursive;
+  font-size: 40px;
 }
 
 .edit-rating {
@@ -33,13 +34,19 @@
   width: 50px;
 }
 
-#location, #park-rating, #review-rating {
+#park-rating, #review-rating {
   font-family: 'Bebas Neue', cursive;
 }
 
 #average {
+  margin-top: -10px;
   font-family: 'Bebas Neue', cursive;
-  font-size: 40px;
+  font-size: 30px;
+}
+
+#location {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 30px;
 }
 
 #up, #down {
@@ -62,6 +69,10 @@
 .review-side-space {
   margin-left: 10%;
   margin-right: 10%;
+  font-size: 20px;
+  margin-top: 5px;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: bold;
 }
 
 .review-info-box {
@@ -88,6 +99,7 @@
 
 .center {
   text-align: center;
+  padding-top: 15px;
 }
 
 .information {
@@ -122,12 +134,22 @@ label {
   margin: auto;
 }
 
-#username, #review-rating {
+#description, #body, .log {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: bold;
+}
+
+#username {
   max-width: 150px;
 }
 
+#review-rating {
+  max-width: 150px;
+  padding-left: 10px;
+}
+
 .votetile {
-  max-width: 100px;
+  margin-top: -25px;
 }
 
 .inline {

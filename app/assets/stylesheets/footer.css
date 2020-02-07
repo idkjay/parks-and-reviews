@@ -1,0 +1,67 @@
+.responsive-blog-footer {
+  margin-top: 25px;
+  background: #005236;
+  padding: 3rem 3rem;
+  color: white;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .responsive-blog-footer h4 {
+    font-size: 2rem;
+  }
+}
+
+.creator {
+  font-family: 'Bebas Neue', cursive;
+  color: #FFF;
+  vertical-align:
+}
+
+.responsive-blog-footer p {
+  color: #FFF;
+}
+
+.responsive-blog-footer .mailing-list {
+  margin-bottom: 1rem;
+}
+
+.responsive-blog-footer .mailing-container {
+  margin-bottom: 2rem;
+}
+
+.responsive-blog-footer .about-section, .responsive-blog-footer .tag-section {
+  margin-bottom: 2rem;
+}
+
+.responsive-blog-footer .about-section a, .responsive-blog-footer .tag-section a {
+  color: #1779ba;
+}
+
+.responsive-blog-footer .fa-chevron-circle-up {
+  font-size: 3rem;
+  color: #FFF;
+}
+
+.responsive-blog-footer .fa-chevron-circle-up:hover {
+  color: #b0b0b0;
+  transition: color 0.3s ease-in;
+}
+
+.fa-linkedin-square {
+  color: #FFF;
+}
+.fa-linkedin-square:hover {
+  color: #1779ba;
+}
+
+.maker {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  border: 5px;
+  border-radius: 5px;
+}
+
+.rights {
+  color: #FFF;
+}
